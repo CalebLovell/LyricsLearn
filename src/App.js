@@ -16,7 +16,7 @@ class App extends Component {
         <Router>
         <Header />
           <Switch>
-            <Landing path="/" Component={Landing} exact/>
+            <Landing path="/" Component={Landing} exact />
             <Song path="/song" Component={Song} />
             <Profile path="/profile" Component={Profile} />
             <Add path="/add" Component={Add} />
