@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const massive = require("massive");
 const session = require("express-session");
+const authCtrl = require("./controllers/authCtrl");
 
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 
@@ -24,3 +25,5 @@ app.use(
 app.listen(SERVER_PORT, () => {
   console.log(`listening on port: ${SERVER_PORT}`);
 });
+
+// Authorization Controller Endpoints
