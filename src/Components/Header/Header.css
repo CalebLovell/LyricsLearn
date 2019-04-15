@@ -1,0 +1,41 @@
+header {
+    height: 10vh;
+    background-color: orangered;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+}
+
+.logo img {
+    height: 50px;
+    width: 50px;
+}
+
+.logo h1 {
+    margin-left: 20px;
+    color: white;
+    font-size: 48px;
+    text-decoration: none;
+}
+
+.site-nav {
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+}
+
+.site-nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.site-nav a:hover {
+    color: black;
+}
