@@ -10,7 +10,7 @@ const app = express();
 
 massive(CONNECTION_STRING).then(db => {
   app.set("db", db);
-  console.log(`db connected`)
+  console.log(`db connected`);
 });
 
 app.use(express.json());
@@ -27,3 +27,4 @@ app.listen(SERVER_PORT, () => {
 });
 
 // Authorization Controller Endpoints
+app.post("/auth/signup", authCtrl.signup);

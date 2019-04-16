@@ -19,10 +19,10 @@ class Header extends Component {
           <Link to="/add">
             <li>Add Song</li>
           </Link>
-          <Link to="/login">
+          <Link to="/auth/login">
             <li>Login</li>
           </Link>
-          <Link to="/signup">
+          <Link to="/auth/signup">
             <li>Sign Up</li>
           </Link>
         </ul>
