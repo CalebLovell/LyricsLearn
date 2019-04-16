@@ -1,8 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import "./Header.css";
 
 class Header extends Component {
+  logout = () => {
+    axios
+      .get('/auth/logout')
+  };
+
   render() {
     return (
       <header className="header">
@@ -19,11 +25,14 @@ class Header extends Component {
           <Link to="/add">
             <li>Add Song</li>
           </Link>
-          <Link to="/auth/login">
+          <Link to="/login">
             <li>Login</li>
           </Link>
-          <Link to="/auth/signup">
+          <Link to="/signup">
             <li>Sign Up</li>
+          </Link>
+          <Link to="/" onClick={() => this.logout()}>
+            <li>Logout</li>
           </Link>
         </ul>
       </header>

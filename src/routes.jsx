@@ -13,7 +13,7 @@ export default (
     <Route path="/song" component={Song} />
     <Route path="/profile" component={Profile} />
     <Route path="/add" component={Add} />
-    <Route path="/auth/signup" component={Signup} />
-    <Route path="/auth/login" component={Login} />
+    <Route path="/signup" component={Signup} />
+    <Route path="/login" component={Login} />
   </Switch>
 );

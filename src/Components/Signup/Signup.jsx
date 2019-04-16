@@ -13,21 +13,25 @@ class Signup extends Component {
     };
   }
 
-  async signup() {
+  signup = async () => {
     const { first_name, last_name, email, password, image } = this.state;
-    const res = await axios.post("/auth/signup", {
-      first_name,
-      last_name,
-      email,
-      password,
-      image
-    });
-    if (res.data.loggedIn) {
-      this.props.history.push("/profile");
-    } else {
-      alert(`registration failed`);
+    try {
+      const result = await axios.post("/auth/signup", {
+        first_name,
+        last_name,
+        email,
+        password,
+        image
+      });
+      if (result.data.loggedIn) {
+        this.props.history.push("/profile");
+      } else {
+        alert(`Sign up failed. User not logged in.`);
+      }
+    } catch (err) {
+      console.log(`You got an error: ${err}`);
     }
-  }
+  };
 
   render() {
     return (

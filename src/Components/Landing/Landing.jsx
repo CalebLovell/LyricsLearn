@@ -9,7 +9,7 @@ class Landing extends Component {
         <Link to="/signup">
           <button>Sign Up</button>
         </Link>
-        <Link to="/signup">
+        <Link to="/login">
           <button>Login</button>
         </Link>
       </div>
