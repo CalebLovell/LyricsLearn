@@ -29,6 +29,9 @@ app.listen(SERVER_PORT, () => {
 // Authorization Controller Endpoints
 app.post("/auth/signup", authCtrl.signup);
 app.post("/auth/login", authCtrl.login);
+app.get("/auth/user", authCtrl.userInfo);
 app.get("/auth/logout", (req, res) => {
   req.session.destroy();
-})
+  console.log(req.session);
+  res.sendStatus(200);
+});

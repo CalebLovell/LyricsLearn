@@ -58,14 +58,18 @@ module.exports = {
         image: existingEmailArray[0].user_image,
         email: existingEmailArray[0].user_email
       };
+      // console.log(req.session.user)
       res.status(201).send({
         message: `Login successful.`,
         userData: req.session.user,
         loggedIn: true
       });
-      console.log(req)
     } catch (err) {
       res.status(500).send(err);
     }
+  },
+  userInfo: (req, res) => {
+    if (req.session.user) res.status(200).send(req.session.user);
+    else res.status(401).send(`Please log in.`);
   }
 };

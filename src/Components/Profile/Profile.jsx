@@ -1,17 +1,45 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getData, killUser } from "./../../ducks/userReducer";
 import { Link } from "react-router-dom";
 
 class Profile extends Component {
+  componentDidMount() {
+    this.props.getData();
+  }
+
   render() {
+    const { id, first_name, last_name, image } = this.props.user;
+    console.log(this.props);
     return (
       <div>
-        <h1>Profile</h1>
-        <Link to="/add">
-          <button>Add a Song</button>
-        </Link>
+        {id ? (
+          <>
+            <h1>Profile</h1>
+            <div>
+              <img src={`https://via.placeholder.com/300`} alt="profile pic" />
+            </div>
+            <h1>{`${first_name} ${last_name}`}</h1>
+            <button>Edit account information</button>
+            <Link to="/add">
+              <button>Add a Song</button>
+            </Link>
+          </>
+        ) : (
+          <div>
+            <p>Please log in first</p>
+            <Link to="/login">
+              <button>Login</button>
+            </Link>
+          </div>
+        )}
       </div>
     );
   }
 }
+const mapState = reduxState => reduxState;
 
-export default Profile;
+export default connect(
+  mapState,
+  { getData, killUser }
+)(Profile);

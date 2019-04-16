@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { killUser } from "./../../ducks/userReducer";
 import axios from "axios";
 import "./Header.css";
 
@@ -31,7 +33,7 @@ class Header extends Component {
           <Link to="/signup">
             <li>Sign Up</li>
           </Link>
-          <Link to="/" onClick={() => this.logout()}>
+          <Link to="/" onClick={() => this.props.killUser()}>
             <li>Logout</li>
           </Link>
         </ul>
@@ -40,4 +42,9 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapState = reduxState => reduxState;
+
+export default connect(
+  mapState,
+  { killUser }
+)(Header);

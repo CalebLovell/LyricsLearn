@@ -17,6 +17,7 @@ class Login extends Component {
         email,
         password
       });
+      console.log(result)
       if (result.data.loggedIn) {
         this.props.history.push("/profile");
       } else {
