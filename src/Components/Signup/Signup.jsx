@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "./Signup.css";
+import "../Login/Auth.css";
 
 class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      first_name: "",
-      last_name: "",
+      name: "",
       email: "",
       password: "",
       image: ""
@@ -16,11 +15,10 @@ class Signup extends Component {
   }
 
   signup = async () => {
-    const { first_name, last_name, email, password, image } = this.state;
+    const { name, email, password, image } = this.state;
     try {
       const result = await axios.post("/auth/signup", {
-        first_name,
-        last_name,
+        name,
         email,
         password,
         image
@@ -37,7 +35,7 @@ class Signup extends Component {
 
   render() {
     return (
-      <div className="signup-page">
+      <div className="auth-page">
         <div className="form">
           <div className="h4-div">
             <h4>SIGN UP</h4>
@@ -45,19 +43,10 @@ class Signup extends Component {
           <div className="input-slot">
             <i class="fa fa-user icon" />
             <input
-              onChange={e => this.setState({ first_name: e.target.value })}
-              value={this.state.first_name}
+              onChange={e => this.setState({ name: e.target.value })}
+              value={this.state.name}
               type="text"
-              placeholder="First Name"
-            />
-          </div>
-          <div className="input-slot">
-            <i class="fa fa-user icon" />
-            <input
-              onChange={e => this.setState({ last_name: e.target.value })}
-              value={this.state.last_name}
-              type="text"
-              placeholder="Last Name"
+              placeholder="Name"
             />
           </div>
           <div className="input-slot">
@@ -66,7 +55,7 @@ class Signup extends Component {
               onChange={e => this.setState({ email: e.target.value })}
               value={this.state.email}
               type="text"
-              placeholder="Email Address"
+              placeholder="Email"
             />
           </div>
           <div className="input-slot">

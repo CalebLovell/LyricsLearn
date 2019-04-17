@@ -1,9 +1,8 @@
 CREATE TABLE Users (
 	user_id serial NOT NULL UNIQUE,
-	user_first_name varchar(50) NOT NULL,
-	user_last_name varchar(50) NOT NULL,
-	user_image TEXT NOT NULL,
+	user_name varchar(50) NOT NULL,
 	user_email varchar(100) NOT NULL UNIQUE,
+	user_image TEXT NOT NULL,
 	user_hash TEXT NOT NULL UNIQUE,
 	CONSTRAINT Users_pk PRIMARY KEY (user_id)
 ) WITH (

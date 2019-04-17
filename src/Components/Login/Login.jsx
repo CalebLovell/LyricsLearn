@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "./Login.css";
+import "./Auth.css";
 
 class Login extends Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="login-page">
+      <div className="auth-page">
         <div className="form">
           <div className="h4-div">
             <h4>LOG IN</h4>

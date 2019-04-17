@@ -9,7 +9,7 @@ class Profile extends Component {
   }
 
   render() {
-    const { id, first_name, last_name, image } = this.props.user;
+    const { id, name, image } = this.props.user;
     console.log(this.props);
     return (
       <div>
@@ -19,7 +19,7 @@ class Profile extends Component {
             <div>
               <img src={`${image}`} alt="profile pic" />
             </div>
-            <h1>{`${first_name} ${last_name}`}</h1>
+            <h1>{`${name}`}</h1>
             <button>Edit account information</button>
             <Link to="/add">
               <button>Add a Song</button>
