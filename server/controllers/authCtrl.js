@@ -5,7 +5,7 @@ module.exports = {
     const { name, email, password, image } = req.body;
     try {
       const db = await req.app.get("db");
-      const existingEmailArray = await db.does_user_email_exist([email]);
+      const existingEmailArray = await db.get_user_emails([email]);
       if (existingEmailArray[0]) {
         return res
           .status(401)
@@ -38,7 +38,7 @@ module.exports = {
     const { email, password } = req.body;
     try {
       const db = await req.app.get("db");
-      const existingEmailArray = await db.does_user_email_exist([email]);
+      const existingEmailArray = await db.get_user_emails([email]);
       if (!existingEmailArray[0]) {
         return res.status(401).send({ message: `No email address found.` });
       }
@@ -55,7 +55,6 @@ module.exports = {
         image: existingEmailArray[0].user_image,
         email: existingEmailArray[0].user_email
       };
-      // console.log(req.session.user)
       res.status(201).send({
         message: `Login successful.`,
         userData: req.session.user,
@@ -64,6 +63,17 @@ module.exports = {
     } catch (err) {
       res.status(500).send(err);
     }
+  },
+  editInfo: (req, res) => {
+    const { name, email, image } = req.body;
+    try {
+      const db = await req.app.get("db");
+      const editedUser = await db.edit_user([]);
+
+    } catch (err) {
+      res.status(500).send(err);
+    }
+  },
   },
   userInfo: (req, res) => {
     if (req.session.user) res.status(200).send(req.session.user);

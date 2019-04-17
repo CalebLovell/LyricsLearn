@@ -1,17 +1,21 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { killUser } from "./../../ducks/userReducer";
+import { getData, killUser } from "./../../ducks/userReducer";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Header.css";
 
 class Header extends Component {
+  componentDidMount() {
+    this.props.getData();
+  }
+
   logout = () => {
-    axios
-      .get('/auth/logout')
+    axios.get("/auth/logout");
   };
 
   render() {
+    const { id, image } = this.props.user;
     return (
       <header className="header">
         <Link to="/">
@@ -21,21 +25,37 @@ class Header extends Component {
           </div>
         </Link>
         <ul className="site-nav">
-          <Link to="/profile">
-            <li>Profile</li>
+          <Link to="/">
+            <li>Home</li>
           </Link>
-          <Link to="/add">
-            <li>Add Song</li>
-          </Link>
-          <Link to="/login">
-            <li>Login</li>
-          </Link>
-          <Link to="/signup">
-            <li>Sign Up</li>
-          </Link>
-          <Link to="/" onClick={() => this.props.killUser()}>
-            <li>Logout</li>
-          </Link>
+          <div className="divider-line" />
+          {!id ? (
+            <>
+              <Link to="/login">
+                <li>Login</li>
+              </Link>
+              <Link to="/signup">
+                <li>Sign Up</li>
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link to="/profile">
+                <li>Profile</li>
+              </Link>
+              <Link to="/add">
+                <li>Add</li>
+              </Link>
+              <Link to="/" onClick={() => this.props.killUser()}>
+                <li>Logout</li>
+              </Link>
+              <Link to="/profile">
+                <div className="profile-pic">
+                  <img src={`${image}`} alt="profile pic" />
+                </div>
+              </Link>
+            </>
+          )}
         </ul>
       </header>
     );
@@ -46,5 +66,5 @@ const mapState = reduxState => reduxState;
 
 export default connect(
   mapState,
-  { killUser }
+  { getData, killUser }
 )(Header);

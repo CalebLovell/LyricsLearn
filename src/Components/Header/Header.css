@@ -1,41 +1,66 @@
 header {
-    height: 10vh;
-    background-color: orangered;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  height: calc(8vh - 1px);
+  background-color: rgb(53, 53, 53);
+  border-bottom: 1px solid #fc4a1a;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
 }
 
 .logo {
-    display: flex;
-    justify-content: space-between;
-    text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
 }
 
 .logo img {
-    height: 50px;
-    width: 50px;
+  height: 35px;
+  width: 35px;
 }
 
 .logo h1 {
-    margin-left: 20px;
-    color: white;
-    font-size: 48px;
-    text-decoration: none;
+  margin-left: 20px;
+  color: white;
+  font-size: 36px;
+  text-decoration: none;
+}
+
+.logo h1:hover {
+  color: #fc4a1a;
 }
 
 .site-nav {
-    width: 600px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 24px;
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
 }
 
 .site-nav a {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 
 .site-nav a:hover {
-    color: black;
+  color: #fc4a1a;
+}
+
+.profile-pic {
+  height: 35px;
+  width: 35px;
+}
+
+.profile-pic img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.divider-line {
+  border-right: 1px solid white;
+  height: 4vh;
 }

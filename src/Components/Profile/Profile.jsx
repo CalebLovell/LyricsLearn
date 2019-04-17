@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getData, killUser } from "./../../ducks/userReducer";
 import { Link } from "react-router-dom";
+import "./Profile.css";
 
 class Profile extends Component {
   componentDidMount() {
@@ -10,21 +11,24 @@ class Profile extends Component {
 
   render() {
     const { id, name, image } = this.props.user;
-    console.log(this.props);
+    console.log(this.props.user);
     return (
-      <div>
+      <div className="profile-page">
         {id ? (
-          <>
-            <h1>Profile</h1>
-            <div>
+          <div className="account-info-container">
+            <div className="account-pic">
               <img src={`${image}`} alt="profile pic" />
             </div>
             <h1>{`${name}`}</h1>
-            <button>Edit account information</button>
-            <Link to="/add">
-              <button>Add a Song</button>
-            </Link>
-          </>
+            <div className="account-buttons-container">
+              <Link to="/add">
+                <button>Add a Song</button>
+              </Link>
+              <Link to="/editInfo">
+                <button>Edit Account Info</button>
+              </Link>
+            </div>
+          </div>
         ) : (
           <div>
             <p>Please log in first</p>

@@ -1,6 +1,6 @@
 .auth-page {
   width: 100%;
-  height: 90vh;
+  height: 92vh;
   background-color: rgb(53, 53, 53);
   display: flex;
   justify-content: center;
@@ -60,7 +60,7 @@
   margin-top: 35px;
   width: 500px;
   padding: 12px;
-  background-color: #fc4a1a;
+  background-color: rgb(255, 87, 51);
   border: none;
   border-radius: 5px;
   color: white;
@@ -71,8 +71,7 @@
 }
 
 .form button:hover {
-  background-color: #f7b733;
-  color: black;
+  background-color: rgb(255,141,26);
   cursor: pointer;
 }
 
@@ -85,7 +84,7 @@
 }
 
 .form a p:hover {
-  color: #f7b733;
+  color: rgb(255,141,26);
 }
 
 .icon {
@@ -94,5 +93,5 @@
 }
 
 .fa-user {
-    font-size: 18px;
-  }  
+  font-size: 18px;
+}
