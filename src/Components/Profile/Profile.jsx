@@ -17,7 +17,7 @@ class Profile extends Component {
           <>
             <h1>Profile</h1>
             <div>
-              <img src={`https://via.placeholder.com/300`} alt="profile pic" />
+              <img src={`${image}`} alt="profile pic" />
             </div>
             <h1>{`${first_name} ${last_name}`}</h1>
             <button>Edit account information</button>

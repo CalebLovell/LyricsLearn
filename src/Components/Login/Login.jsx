@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import "./Login.css";
 
 class Login extends Component {
   constructor(props) {
@@ -17,7 +19,7 @@ class Login extends Component {
         email,
         password
       });
-      console.log(result)
+      console.log(result);
       if (result.data.loggedIn) {
         this.props.history.push("/profile");
       } else {
@@ -26,25 +28,37 @@ class Login extends Component {
     } catch (err) {
       console.log(`You got an error: ${err}`);
     }
-  }
+  };
 
   render() {
     return (
-      <div className="login-form">
-        <div className="input-container">
-          <input
-            onChange={e => this.setState({ email: e.target.value })}
-            value={this.state.email}
-            type="text"
-            placeholder="Email Address"
-          />
-          <input
-            onChange={e => this.setState({ password: e.target.value })}
-            value={this.state.password}
-            type="password"
-            placeholder="Password"
-          />
+      <div className="login-page">
+        <div className="form">
+          <div className="h4-div">
+            <h4>LOG IN</h4>
+          </div>
+          <div className="input-slot">
+            <i class="fa fa-envelope icon" />
+            <input
+              onChange={e => this.setState({ email: e.target.value })}
+              value={this.state.email}
+              type="text"
+              placeholder="Email"
+            />
+          </div>
+          <div className="input-slot">
+            <i class="fa fa-key icon" />
+            <input
+              onChange={e => this.setState({ password: e.target.value })}
+              value={this.state.password}
+              type="password"
+              placeholder="Password"
+            />
+          </div>
           <button onClick={() => this.login()}>Login</button>
+          <Link to="/signup">
+            <p>Click here to create an account!</p>
+          </Link>
         </div>
       </div>
     );
