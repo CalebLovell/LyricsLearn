@@ -11,10 +11,9 @@ class Profile extends Component {
 
   render() {
     const { id, name, image } = this.props.user;
-    console.log(this.props.user);
     return (
       <div className="profile-page">
-        {id ? (
+        {id && (
           <div className="account-info-container">
             <div className="account-pic">
               <img src={`${image}`} alt="profile pic" />
@@ -28,13 +27,6 @@ class Profile extends Component {
                 <button>Edit Account Info</button>
               </Link>
             </div>
-          </div>
-        ) : (
-          <div>
-            <p>Please log in first</p>
-            <Link to="/login">
-              <button>Login</button>
-            </Link>
           </div>
         )}
       </div>

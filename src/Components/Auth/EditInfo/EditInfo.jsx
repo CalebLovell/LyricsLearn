@@ -16,21 +16,21 @@ class EditInfo extends Component {
 
   componentDidMount() {
     this.props.getData();
-    console.log(this.props.user);
   }
 
-  editInfo = async () => {
+  editInfo = async id => {
     const { name, email, image } = this.state;
     try {
-      const result = await axios.put("/auth/editInfo", {
+      const result = await axios.put(`/auth/editInfo/${id}`, {
         name,
         email,
         image
       });
+      await this.props.getData();
       if (result.data.loggedIn) {
         this.props.history.push("/profile");
       } else {
-        alert(`Edit failed.`);
+        alert(`Login failed. User not logged in.`);
       }
     } catch (err) {
       console.log(`You got an error: ${err}`);
@@ -71,7 +71,7 @@ class EditInfo extends Component {
               placeholder="Profile Picture"
             />
           </div>
-          <button onClick={() => this.editInfo()}>Edit Info</button>
+          <button onClick={e => this.editInfo(this.props.user.id)}>Edit Info</button>
         </div>
       </div>
     );

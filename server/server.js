@@ -19,7 +19,7 @@ app.use(
     secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false
-  })
+  }),
 );
 
 app.listen(SERVER_PORT, () => {
@@ -29,7 +29,7 @@ app.listen(SERVER_PORT, () => {
 // Authorization Controller Endpoints
 app.post("/auth/signup", authCtrl.signup);
 app.post("/auth/login", authCtrl.login);
-app.put("/auth/editInfo", authCtrl.editInfo);
+app.put("/auth/editInfo/:id", authCtrl.editInfo);
 app.get("/auth/user", authCtrl.userInfo);
 app.get("/auth/logout", (req, res) => {
   req.session.destroy();

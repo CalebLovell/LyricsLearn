@@ -15,16 +15,15 @@ class Login extends Component {
   login = async () => {
     const { email, password } = this.state;
     try {
-      const result = await axios.post("/auth/login", {
-        email,
-        password
-      });
-      console.log(result);
-      if (result.data.loggedIn) {
-        this.props.history.push("/profile");
-      } else {
-        alert(`Login failed. User not logged in.`);
-      }
+    const result = await axios.post("/auth/login", {
+      email,
+      password
+    });
+    if (result.data.loggedIn) {
+      this.props.history.push("/profile");
+    } else {
+      alert(`Login failed. User not logged in.`);
+    }
     } catch (err) {
       console.log(`You got an error: ${err}`);
     }
