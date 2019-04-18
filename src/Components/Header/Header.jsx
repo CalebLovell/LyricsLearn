@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getData, killUser } from "./../../ducks/userReducer";
+import { getUserData, killUser } from "./../../ducks/userReducer";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Header.css";
 
 class Header extends Component {
   componentDidMount() {
-    this.props.getData();
+    this.props.getUserData();
   }
 
   logout = () => {
@@ -66,5 +66,5 @@ const mapState = reduxState => reduxState;
 
 export default connect(
   mapState,
-  { getData, killUser }
+  { getUserData, killUser }
 )(Header);

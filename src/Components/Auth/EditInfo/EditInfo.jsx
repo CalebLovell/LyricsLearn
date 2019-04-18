@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
-import { getData } from "../../../ducks/userReducer";
+import { getUserData } from "../../../ducks/userReducer";
 import "../Auth.css";
 
 class EditInfo extends Component {
@@ -15,7 +15,7 @@ class EditInfo extends Component {
   }
 
   componentDidMount() {
-    this.props.getData();
+    this.props.getUserData();
   }
 
   editInfo = async id => {
@@ -26,7 +26,7 @@ class EditInfo extends Component {
         email,
         image
       });
-      await this.props.getData();
+      await this.props.getUserData();
       if (result.data.loggedIn) {
         this.props.history.push("/profile");
       } else {
@@ -82,5 +82,5 @@ const mapState = reduxState => reduxState;
 
 export default connect(
   mapState,
-  { getData }
+  { getUserData }
 )(EditInfo);

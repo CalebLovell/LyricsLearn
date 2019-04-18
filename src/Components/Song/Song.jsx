@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./Song.css";
+import { connect } from "react-redux";
+import { getUserData, killUser } from "./../../ducks/userReducer";
 
 class Song extends Component {
   render() {
@@ -27,4 +29,9 @@ class Song extends Component {
   }
 }
 
-export default Song;
+const mapState = reduxState => reduxState;
+
+export default connect(
+  mapState,
+  { getUserData, killUser }
+)(Song);

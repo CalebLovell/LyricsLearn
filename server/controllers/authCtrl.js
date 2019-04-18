@@ -36,7 +36,7 @@ module.exports = {
   },
   login: async (req, res) => {
     const { email, password } = req.body;
-    // try {
+    try {
       const db = await req.app.get("db");
       const existingEmailArray = await db.get_user_emails([email]);
       if (!existingEmailArray[0]) {
@@ -60,9 +60,9 @@ module.exports = {
         userData: req.session.user,
         loggedIn: true
       });
-    // } catch (err) {
-    //   res.status(500).send(err);
-    // }
+    } catch (err) {
+      res.status(500).send(err);
+    }
   },
   editInfo: async (req, res) => {
     const { id } = req.params;

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { getData, killUser } from "./../../ducks/userReducer";
-import { Link } from "react-router-dom";
 import "./Profile.css";
+import { connect } from "react-redux";
+import { getUserData, killUser } from "./../../ducks/userReducer";
+import { Link } from "react-router-dom";
 
 class Profile extends Component {
   componentDidMount() {
-    this.props.getData();
+    this.props.getUserData();
   }
 
   render() {
@@ -37,5 +37,5 @@ const mapState = reduxState => reduxState;
 
 export default connect(
   mapState,
-  { getData, killUser }
+  { getUserData, killUser }
 )(Profile);

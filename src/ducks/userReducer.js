@@ -7,7 +7,7 @@ const initialState = {
 const GET_DATA = "GET_DATA";
 const KILL_USER = "KILL_USER";
 
-export function getData() {
+export function getUserData() {
   let data = axios.get("/auth/user").then(res => res.data);
   return {
     type: GET_DATA,
