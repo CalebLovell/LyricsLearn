@@ -1,7 +1,7 @@
 header {
   height: calc(8vh - 1px);
   background-color: rgb(53, 53, 53);
-  border-bottom: 1px solid #fc4a1a;
+  border-bottom: 1px solid white;
   display: flex;
   justify-content: space-around;
   align-items: center;
