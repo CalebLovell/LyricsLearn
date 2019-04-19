@@ -2,6 +2,7 @@
   width: 100%;
   height: 192vh;
   background-color: rgb(53, 53, 53);
+  font-family: "Varela Round", sans-serif;
 }
 
 .song-page-top-banner {
@@ -31,9 +32,27 @@
 }
 
 .song-details-box {
-    height: 100%;
-    margin-left: 50px;
-    color: white;
+  height: 100%;
+  margin-left: 50px;
+  color: white;
+}
+
+.song-details-box h1 {
+  font-size: 40px;
+}
+
+.song-details-box h4 {
+  font-size: 24px;
+  color: #fc4a1a;
+
+}
+
+.song-details-box h5 {
+  font-size: 24px;
+}
+
+.song-details-box p {
+
 }
 
 .explanation-box {
@@ -42,4 +61,31 @@
   background-color: #fc4a1a;
   position: fixed;
   bottom: 0;
+  
+}
+
+.language-button {
+  height: 40px;
+  width: 110px;
+  background-color: rgb(228, 222, 222);
+  color: rgb(53, 53, 53);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  padding: 2px 7px;
+}
+
+.language-flag-div {
+  height: 45px;
+  width: 45px;
+}
+
+.language-flag-div img {
+  height: 100%;
+  width: 100%;
+}
+
+.language-button span {
+  margin-left: 5px;
 }

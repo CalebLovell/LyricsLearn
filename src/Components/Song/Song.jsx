@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Song.css";
 import { connect } from "react-redux";
 import { getUserData, killUser } from "./../../ducks/userReducer";
-import axios from 'axios';
+import axios from "axios";
 
 class Song extends Component {
   constructor(props) {
@@ -12,7 +12,8 @@ class Song extends Component {
       songTitle: "",
       artistName: "",
       userName: "",
-      languageName: ""
+      languageName: "",
+      languageFlag: ""
     };
   }
 
@@ -20,29 +21,55 @@ class Song extends Component {
     this.getSongInfo();
   }
 
-  getSongInfo = async (id) => {
-    await axios
-      .get(`/song/${id}`)
-  }
+  getSongInfo = async () => {
+    try {
+      const { id } = this.props.match.params;
+      const result = await axios.get(`/song/${id}`);
+      const {
+        song_instance_title,
+        song_instance_art,
+        user_name,
+        language_name,
+        artist_name,
+        language_flag
+      } = result.data.songInstance[0];
+      this.setState({
+        songArt: song_instance_art,
+        songTitle: song_instance_title,
+        artistName: artist_name,
+        userName: user_name,
+        languageName: language_name,
+        languageFlag: language_flag
+      });
+    } catch (err) {
+      console.log(
+        `The getSongInfo method on the Profile component had a problem: ${err}`
+      );
+    }
+  };
 
   render() {
+    console.log(this.state);
     return (
       <div className="song-page">
         <div className="song-page-top-banner">
           <div className="song-page-display-box">
             <div className="album-art-box">
-              <img
-                src={`${this.state.songArt}`}
-                alt="album art"
-              />
+              <img src={`${this.state.songArt}`} alt="album art" />
             </div>
             <div className="song-details-box">
-              <h1>Song Title{this.state.songTitle}</h1>
-              <h4>Artist Name{this.state.artistName}</h4>
-              <h4>User Author Name{this.state.userName}</h4>
-              <p>Choose a Language Below</p>
-              <div>Flag</div>
-              <button>Language{this.state.languageName}</button>
+              <h1>{this.state.songTitle}</h1>
+              <h4>{this.state.artistName}</h4>
+              <h5>{this.state.userName}</h5>
+              <p>choose a language below</p>
+              <div className="language-button-container">
+                <div className="language-button">
+                  <div className="language-flag-div">
+                    <img src={this.state.languageFlag} alt="language flag" />
+                  </div>
+                  <span>{this.state.languageName}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

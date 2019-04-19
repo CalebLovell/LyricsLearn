@@ -1,12 +1,12 @@
 module.exports = {
   getSongInstance: async (req, res) => {
-    const { id } = req.params.match;
+    const { id } = req.params
     try {
       const db = await req.app.get("db");
-      const songInstanceData = await db.get_song_instance([id]);
+      const songInstance = await db.get_song_instance([id]);
       res.status(200).send({
-        message: `Song info sent.`,
-        songInstance: songInstanceData
+        message: `Song instance sent.`,
+        songInstance
       });
     } catch (err) {
       res
@@ -18,10 +18,10 @@ module.exports = {
     const { id } = req.params;
     try {
       const db = await req.app.get("db");
-      const userSongsListData = await db.get_user_songs_list([id]);
+      const userSongsList = await db.get_user_songs_list([id]);
       res.status(200).send({
-        message: `Song info sent.`,
-        userSongsList: userSongsListData
+        message: `User songs list sent.`,
+        userSongsList
       });
     } catch (err) {
       res

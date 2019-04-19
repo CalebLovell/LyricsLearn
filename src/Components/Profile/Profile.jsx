@@ -31,23 +31,23 @@ class Profile extends Component {
     }
   };
 
-  viewSong = () => {
-
-  }
-
   render() {
     const { id, name, image } = this.props.user;
     let mappedUserSongs = this.state.userSongs.map((song, i) => {
       return (
-        // <button ></button>
-        <div className="song-instance-box" onClick={e => this.viewSong()} key={i}>
-          <div className="album-art-container">
-            <img src={`${song.song_instance_art}`} alt="album art" />
+        <Link to={`/song/${song.song_instance_id}`}>
+          <div
+            className="song-instance-box"
+            key={i}
+          >
+            <div className="album-art-container">
+              <img src={`${song.song_instance_art}`} alt="album art" />
+            </div>
+            <p>{song.song_instance_title}</p>
+            <p>{song.artist_name}</p>
+            <p>{song.user_name}</p>
           </div>
-          <p>{song.song_instance_title}</p>
-          <p>{song.artist_name}</p>
-          <p>{song.user_name}</p>
-        </div>
+        </Link>
       );
     });
     return (
