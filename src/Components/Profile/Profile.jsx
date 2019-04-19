@@ -22,7 +22,7 @@ class Profile extends Component {
     try {
       const result = await axios.get(`/user/songs/${id}`);
       this.setState({
-        userSongs: result.data.songsList
+        userSongs: result.data.userSongsList
       });
     } catch (err) {
       console.log(
@@ -32,7 +32,7 @@ class Profile extends Component {
   };
 
   viewSong = () => {
-    
+
   }
 
   render() {

@@ -3,36 +3,25 @@ module.exports = {
     const { id } = req.params.match;
     try {
       const db = await req.app.get("db");
-      const songInfo = await db.get_song_info([id]);
-      const {
-        song_instance_title,
-        song_instance_art,
-        user_name,
-        language_name,
-        artist_name
-      } = songInfo[0];
+      const songInstanceData = await db.get_song_instance([id]);
       res.status(200).send({
         message: `Song info sent.`,
-        songData: {
-          songArt: song_instance_art,
-          songTitle: song_instance_title,
-          artistName: artist_name,
-          userName: user_name,
-          languageName: language_name
-        }
+        songInstance: songInstanceData
       });
     } catch (err) {
-      res.status(500).send(`The getSongInstance function had a problem: ${err}`);
+      res
+        .status(500)
+        .send(`The getSongInstance function had a problem: ${err}`);
     }
   },
   getUserSongsList: async (req, res) => {
     const { id } = req.params;
     try {
       const db = await req.app.get("db");
-      const userSongsList = await db.get_user_song_instances([id]);
+      const userSongsListData = await db.get_user_songs_list([id]);
       res.status(200).send({
         message: `Song info sent.`,
-        songsList: userSongsList
+        userSongsList: userSongsListData
       });
     } catch (err) {
       res
