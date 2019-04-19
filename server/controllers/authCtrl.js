@@ -13,12 +13,7 @@ module.exports = {
       }
       const salt = bcrypt.genSaltSync(10);
       const hash = bcrypt.hashSync(password, salt);
-      let newUserArray = await db.create_user([
-        name,
-        email,
-        hash,
-        image
-      ]);
+      let newUserArray = await db.create_user([name, email, hash, image]);
       req.session.user = {
         id: newUserArray[0].user_id,
         name: newUserArray[0].user_name,
@@ -31,7 +26,7 @@ module.exports = {
         loggedIn: true
       });
     } catch (err) {
-      res.status(500).send(err);
+      res.status(500).send(`The signup function had a problem: ${err}`);
     }
   },
   login: async (req, res) => {
@@ -61,7 +56,7 @@ module.exports = {
         loggedIn: true
       });
     } catch (err) {
-      res.status(500).send(err);
+      res.status(500).send(`The login function had a problem: ${err}`);
     }
   },
   editInfo: async (req, res) => {
@@ -82,11 +77,15 @@ module.exports = {
         loggedIn: true
       });
     } catch (err) {
-      res.status(500).send(err);
+      res.status(500).send(`The editInfo function had a problem: ${err}`);
     }
   },
   userInfo: (req, res) => {
     if (req.session.user) res.status(200).send(req.session.user);
     else res.status(401).send(`Please log in.`);
+  },
+  logout: (req, res) => {
+    req.session.destroy();
+    res.sendStatus(200);
   }
 };

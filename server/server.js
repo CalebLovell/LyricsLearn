@@ -3,6 +3,7 @@ const express = require("express");
 const massive = require("massive");
 const session = require("express-session");
 const authCtrl = require("./controllers/authCtrl");
+const songCtrl = require("./controllers/songCtrl");
 
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 
@@ -19,19 +20,20 @@ app.use(
     secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false
-  }),
+  })
 );
 
 app.listen(SERVER_PORT, () => {
   console.log(`listening on port: ${SERVER_PORT}`);
 });
 
-// Authorization Controller Endpoints
+// User Info & Authorization Endpoints
 app.post("/auth/signup", authCtrl.signup);
 app.post("/auth/login", authCtrl.login);
 app.put("/auth/editInfo/:id", authCtrl.editInfo);
 app.get("/auth/user", authCtrl.userInfo);
-app.get("/auth/logout", (req, res) => {
-  req.session.destroy();
-  res.sendStatus(200);
-});
+app.get("/auth/logout", authCtrl.logout);
+
+// Song Info Endpoints
+app.get("/song/:id", songCtrl.getSongInstance);
+app.get("/user/songs/:id", songCtrl.getUserSongsList);
