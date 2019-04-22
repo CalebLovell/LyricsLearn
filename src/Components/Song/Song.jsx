@@ -13,7 +13,10 @@ class Song extends Component {
       artistName: "",
       userName: "",
       languageName: "",
-      languageFlag: ""
+      languageFlag: "",
+      lineLyricsArr: [],
+      lineExplanationArr: [],
+      lineIndexArr: []
     };
   }
 
@@ -31,7 +34,10 @@ class Song extends Component {
         user_name,
         language_name,
         artist_name,
-        language_flag
+        language_flag,
+        line_lyrics,
+        line_explanation,
+        line_index
       } = result.data.songInstance[0];
       this.setState({
         songArt: song_instance_art,
@@ -39,7 +45,10 @@ class Song extends Component {
         artistName: artist_name,
         userName: user_name,
         languageName: language_name,
-        languageFlag: language_flag
+        languageFlag: language_flag,
+        lineLyricsArr: line_lyrics,
+        lineExplanationArr: line_explanation,
+        lineIndexArr: line_index
       });
     } catch (err) {
       console.log(
@@ -49,7 +58,13 @@ class Song extends Component {
   };
 
   render() {
-    console.log(this.state);
+    let mappedLineLyrics = this.state.lineLyrics.map((line, i) => {
+      return (
+        <div className="line-slot" key={i}>
+          <p className="line-lyrics">{line.line_lyrics}</p>
+        </div>
+      );
+    });
     return (
       <div className="song-page">
         <div className="song-page-top-banner">
@@ -73,6 +88,7 @@ class Song extends Component {
             </div>
           </div>
         </div>
+        <div className="lines-box">{mappedLineLyrics}</div>
         <div className="explanation-box" />
       </div>
     );
