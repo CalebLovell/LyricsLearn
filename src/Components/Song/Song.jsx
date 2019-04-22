@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Song.css";
 import { connect } from "react-redux";
-import { getUserData, killUser } from "./../../ducks/userReducer";
+import { getUserData } from "./../../ducks/userReducer";
 import axios from "axios";
 
 class Song extends Component {
@@ -14,9 +14,7 @@ class Song extends Component {
       userName: "",
       languageName: "",
       languageFlag: "",
-      lineLyricsArr: [],
-      lineExplanationArr: [],
-      lineIndexArr: []
+      songLines: []
     };
   }
 
@@ -28,6 +26,7 @@ class Song extends Component {
     try {
       const { id } = this.props.match.params;
       const result = await axios.get(`/song/${id}`);
+      console.log(result)
       const {
         song_instance_title,
         song_instance_art,
@@ -35,10 +34,7 @@ class Song extends Component {
         language_name,
         artist_name,
         language_flag,
-        line_lyrics,
-        line_explanation,
-        line_index
-      } = result.data.songInstance[0];
+      } = result.data.songInfo[0];
       this.setState({
         songArt: song_instance_art,
         songTitle: song_instance_title,
@@ -46,10 +42,9 @@ class Song extends Component {
         userName: user_name,
         languageName: language_name,
         languageFlag: language_flag,
-        lineLyricsArr: line_lyrics,
-        lineExplanationArr: line_explanation,
-        lineIndexArr: line_index
+        songLines: result.data.songLines
       });
+      console.log(this.state)
     } catch (err) {
       console.log(
         `The getSongInfo method on the Profile component had a problem: ${err}`
@@ -58,7 +53,7 @@ class Song extends Component {
   };
 
   render() {
-    let mappedLineLyrics = this.state.lineLyrics.map((line, i) => {
+    let mappedLineLyrics = this.state.songLines.map((line, i) => {
       return (
         <div className="line-slot" key={i}>
           <p className="line-lyrics">{line.line_lyrics}</p>
@@ -99,5 +94,5 @@ const mapState = reduxState => reduxState;
 
 export default connect(
   mapState,
-  { getUserData, killUser }
+  { getUserData }
 )(Song);

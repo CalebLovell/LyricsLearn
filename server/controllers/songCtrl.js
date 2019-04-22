@@ -3,11 +3,11 @@ module.exports = {
     const { id } = req.params
     try {
       const db = await req.app.get("db");
-      const songInstance = await db.get_song_instance([id]);
+      const songInfo = await db.get_song_info([id]);
       const songLines = await db.get_song_lines([id])
       res.status(200).send({
         message: `Song instance and lines sent.`,
-        songInstance,
+        songInfo,
         songLines
       });
     } catch (err) {
