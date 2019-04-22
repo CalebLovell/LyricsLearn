@@ -44,7 +44,6 @@
 .song-details-box h4 {
   font-size: 24px;
   color: #fc4a1a;
-
 }
 
 .song-details-box h5 {
@@ -52,7 +51,6 @@
 }
 
 .song-details-box p {
-
 }
 
 .explanation-box {
@@ -61,7 +59,6 @@
   background-color: #fc4a1a;
   position: fixed;
   bottom: 0;
-  
 }
 
 .language-button {
@@ -74,6 +71,7 @@
   align-items: center;
   font-weight: bold;
   padding: 2px 7px;
+  cursor: pointer;
 }
 
 .language-flag-div {

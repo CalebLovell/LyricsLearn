@@ -35,5 +35,6 @@ app.get("/auth/user", authCtrl.userInfo);
 app.get("/auth/logout", authCtrl.logout);
 
 // Song Info Endpoints
-app.get("/song/:id", songCtrl.getSongInstance);
-app.get("/user/songs/:id", songCtrl.getUserSongsList);
+app.get("/user/songs/:userID", songCtrl.getUserSongsList);
+app.get("/song/:songID", songCtrl.getSongInstance);
+app.get("/song/:songID/:languageID", songCtrl.getSongTranslation);

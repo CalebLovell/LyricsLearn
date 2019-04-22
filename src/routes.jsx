@@ -11,7 +11,7 @@ import Add from "./Components/Add/Add";
 export default (
   <Switch>
     <Route path="/" component={Landing} exact />
-    <Route path="/song/:id" component={Song} />
+    <Route path="/song/:songID" component={Song} />
     <Route path="/profile" component={Profile} />
     <Route path="/add" component={Add} />
     <Route path="/signup" component={Signup} />

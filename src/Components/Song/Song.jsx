@@ -14,26 +14,27 @@ class Song extends Component {
       userName: "",
       languageName: "",
       languageFlag: "",
-      songLines: []
+      songTranslationLanguages: [],
+      songLines: [],
+      songTranslation: []
     };
   }
 
   componentDidMount() {
-    this.getSongInfo();
+    this.getSongInstance();
   }
 
-  getSongInfo = async () => {
+  getSongInstance = async () => {
     try {
-      const { id } = this.props.match.params;
-      const result = await axios.get(`/song/${id}`);
-      console.log(result)
+      const { songID } = this.props.match.params;
+      const result = await axios.get(`/song/${songID}`);
       const {
         song_instance_title,
         song_instance_art,
         user_name,
         language_name,
         artist_name,
-        language_flag,
+        language_flag
       } = result.data.songInfo[0];
       this.setState({
         songArt: song_instance_art,
@@ -42,24 +43,54 @@ class Song extends Component {
         userName: user_name,
         languageName: language_name,
         languageFlag: language_flag,
-        songLines: result.data.songLines
+        songLines: result.data.songLines,
+        songTranslationLanguages: result.data.songTranslationLanguages
       });
-      console.log(this.state)
     } catch (err) {
       console.log(
-        `The getSongInfo method on the Profile component had a problem: ${err}`
+        `The getSongInstance method on the Song component had a problem: ${err}`
+      );
+    }
+  };
+
+  getSongTranslation = async languageID => {
+    try {
+      const { songID } = this.props.match.params;
+      const result = await axios.get(`/song/${songID}/${languageID}`);
+      this.setState({
+        songTranslation: result.data.songTranslation
+      });
+    } catch (err) {
+      console.log(
+        `The getSongTranslation method on the Song component had a problem: ${err}`
       );
     }
   };
 
   render() {
-    let mappedLineLyrics = this.state.songLines.map((line, i) => {
+    let mappedLyrics = this.state.songLines.map((line, i) => {
       return (
         <div className="line-slot" key={i}>
           <p className="line-lyrics">{line.line_lyrics}</p>
         </div>
       );
     });
+    let mappedTranslation = this.state.songTranslation.map((line, i) => {
+      return (
+        <div className="line-slot" key={i}>
+          <p className="line-lyrics">{line.line_translation_lyrics}</p>
+        </div>
+      );
+    });
+    let mappedLanguages = this.state.songTranslationLanguages.map(
+      (translationLanguage, i) => {
+        return (
+          <option value={`${translationLanguage.language_id}`} key={i}>
+            {translationLanguage.language_name}
+          </option>
+        );
+      }
+    );
     return (
       <div className="song-page">
         <div className="song-page-top-banner">
@@ -72,18 +103,12 @@ class Song extends Component {
               <h4>{this.state.artistName}</h4>
               <h5>{this.state.userName}</h5>
               <p>choose a language below</p>
-              <div className="language-button-container">
-                <div className="language-button">
-                  <div className="language-flag-div">
-                    <img src={this.state.languageFlag} alt="language flag" />
-                  </div>
-                  <span>{this.state.languageName}</span>
-                </div>
-              </div>
+              <select onChange={}>{mappedLanguages}</select>
             </div>
           </div>
         </div>
-        <div className="lines-box">{mappedLineLyrics}</div>
+        <div className="lyrics-box">{mappedLyrics}</div>
+        <div className="translation-box">{mappedTranslation}</div>
         <div className="explanation-box" />
       </div>
     );
