@@ -29,7 +29,6 @@ class Song extends Component {
     try {
       const { songID } = this.props.match.params;
       const result = await axios.get(`/song/${songID}`);
-      console.log(result);
       const {
         song_instance_title,
         song_instance_art,
@@ -70,9 +69,9 @@ class Song extends Component {
     }
   };
 
-  setExplanation = async explan => {
+  setExplanation = async explanation => {
     this.setState({
-      visibleExplanation: explan
+      visibleExplanation: explanation
     });
   };
 
@@ -90,7 +89,7 @@ class Song extends Component {
     });
     let mappedTranslation = this.state.songTranslation.map((line, i) => {
       return (
-        <div className="line-slot" key={i}>
+        <div className="line-slot" key={i} onClick={() => this.setExplanation(line.line_translation_explanation)}>
           <p className="line-lyrics">{line.line_translation_lyrics}</p>
         </div>
       );
@@ -150,7 +149,7 @@ class Song extends Component {
           </div>
           <div className="explanation-box">
             <div className="explanation">
-              <p>{this.state.visibleExplanation}</p>
+              <p>Explanation:  {this.state.visibleExplanation}</p>
             </div>
           </div>
         </div>

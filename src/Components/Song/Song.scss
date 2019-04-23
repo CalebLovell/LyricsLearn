@@ -102,7 +102,7 @@
   width: 80%;
   display: flex;
   flex-direction: column;
-  margin-top: 70px;
+  margin-top: 55px;
 }
 
 .lyrics-space {
@@ -121,7 +121,7 @@
     margin-left: 2rem;
   }
   .line-slot {
-    border: 1px solid white;
+    // border: 1px solid white;
     height: 2rem;
     margin: 15px 0px;
   }
@@ -140,11 +140,11 @@
   align-items: center;
   justify-content: center;
   .explanation {
-    width: 80%;
+    width: 90%;
     max-height: 2rem;
     // border: 1px solid black;
-    color: #fc4a1a;
-    font-size: 16px;
-    text-align: center;
+    color: black;
+    font-size: 24px;
+    display: flex;
   }
 }
