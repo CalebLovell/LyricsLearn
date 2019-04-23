@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Song.css";
+import "./Song.scss";
 import { connect } from "react-redux";
 import { getUserData } from "./../../ducks/userReducer";
 import axios from "axios";
@@ -16,7 +16,8 @@ class Song extends Component {
       languageFlag: "",
       songTranslationLanguages: [],
       songLines: [],
-      songTranslation: []
+      songTranslation: [],
+      visibleExplanation: ""
     };
   }
 
@@ -28,6 +29,7 @@ class Song extends Component {
     try {
       const { songID } = this.props.match.params;
       const result = await axios.get(`/song/${songID}`);
+      console.log(result);
       const {
         song_instance_title,
         song_instance_art,
@@ -57,6 +59,7 @@ class Song extends Component {
     try {
       const { songID } = this.props.match.params;
       const result = await axios.get(`/song/${songID}/${languageID}`);
+      console.log(result);
       this.setState({
         songTranslation: result.data.songTranslation
       });
@@ -67,10 +70,20 @@ class Song extends Component {
     }
   };
 
+  setExplanation = async explan => {
+    this.setState({
+      visibleExplanation: explan
+    });
+  };
+
   render() {
     let mappedLyrics = this.state.songLines.map((line, i) => {
       return (
-        <div className="line-slot" key={i}>
+        <div
+          className="line-slot"
+          key={i}
+          onClick={() => this.setExplanation(line.line_explanation)}
+        >
           <p className="line-lyrics">{line.line_lyrics}</p>
         </div>
       );
@@ -88,7 +101,9 @@ class Song extends Component {
           <div
             className="language-button"
             key={i}
-            onClick={() => this.getSongTranslation(translationLanguage.language_id)}
+            onClick={() =>
+              this.getSongTranslation(translationLanguage.language_id)
+            }
           >
             <div className="language-flag-div">
               <img
@@ -111,15 +126,34 @@ class Song extends Component {
             <div className="song-details-box">
               <h1>{this.state.songTitle}</h1>
               <h4>{this.state.artistName}</h4>
-              <h5>{this.state.userName}</h5>
-              <p>choose a language below</p>
-              <div className="language-button-container">{mappedLanguages}</div>
+              <div className="languages-box">
+                {mappedLanguages}
+
+                <div className="language-button">
+                  <div className="language-flag-div">
+                    <img
+                      src="https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Italy_flat.png"
+                      alt="language flag"
+                    />
+                  </div>
+                  <span>Italian</span>
+                </div>
+              </div>
+              <h5>Translator: {this.state.userName}</h5>
             </div>
           </div>
         </div>
-        <div className="lyrics-box">{mappedLyrics}</div>
-        <div className="translation-box">{mappedTranslation}</div>
-        <div className="explanation-box" />
+        <div className="song-page-main-space">
+          <div className="lyrics-space">
+            <div className="lyrics-box">{mappedLyrics}</div>
+            <div className="translation-box">{mappedTranslation}</div>
+          </div>
+          <div className="explanation-box">
+            <div className="explanation">
+              <p>{this.state.visibleExplanation}</p>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
