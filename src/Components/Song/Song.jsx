@@ -17,6 +17,7 @@ class Song extends Component {
       songTranslationLanguages: [],
       songLines: [],
       songTranslation: []
+      // currentlyDisplayedTranslationLang: ""
     };
   }
 
@@ -53,8 +54,15 @@ class Song extends Component {
     }
   };
 
+  // changeLanguage = () => {
+  //   this.setState({
+  //     currentlyDisplayedTranslationLang: 1
+  //   });
+  // };
+
   getSongTranslation = async languageID => {
     try {
+      // this.changeLanguage();
       const { songID } = this.props.match.params;
       const result = await axios.get(`/song/${songID}/${languageID}`);
       this.setState({
@@ -85,9 +93,19 @@ class Song extends Component {
     let mappedLanguages = this.state.songTranslationLanguages.map(
       (translationLanguage, i) => {
         return (
-          <option value={`${translationLanguage.language_id}`} key={i}>
-            {translationLanguage.language_name}
-          </option>
+          <div
+            className="language-button"
+            key={i}
+            onClick={() => this.getSongTranslation(translationLanguage.language_id)}
+          >
+            <div className="language-flag-div">
+              <img
+                src={translationLanguage.language_flag}
+                alt="language flag"
+              />
+            </div>
+            <span>{translationLanguage.language_name}</span>
+          </div>
         );
       }
     );
@@ -103,7 +121,7 @@ class Song extends Component {
               <h4>{this.state.artistName}</h4>
               <h5>{this.state.userName}</h5>
               <p>choose a language below</p>
-              <select onChange={}>{mappedLanguages}</select>
+              <div className="language-button-container">{mappedLanguages}</div>
             </div>
           </div>
         </div>

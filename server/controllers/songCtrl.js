@@ -37,7 +37,7 @@ module.exports = {
     const { songID, languageID } = req.params;
     try {
       const db = await req.app.get("db");
-      const songTranslation = await db.get_song_translation([songID, languageID]);
+      const songTranslation = await db.get_song_lines_translation([songID, languageID]);
       res.status(200).send({
         message: `Song translation sent.`,
         songTranslation
