@@ -17,7 +17,6 @@ class Song extends Component {
       songTranslationLanguages: [],
       songLines: [],
       songTranslation: []
-      // currentlyDisplayedTranslationLang: ""
     };
   }
 
@@ -54,15 +53,8 @@ class Song extends Component {
     }
   };
 
-  // changeLanguage = () => {
-  //   this.setState({
-  //     currentlyDisplayedTranslationLang: 1
-  //   });
-  // };
-
   getSongTranslation = async languageID => {
     try {
-      // this.changeLanguage();
       const { songID } = this.props.match.params;
       const result = await axios.get(`/song/${songID}/${languageID}`);
       this.setState({
