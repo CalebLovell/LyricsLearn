@@ -1,0 +1,103 @@
+.add-page {
+  width: 100%;
+  // height: 400vh;
+  background-color: rgb(53, 53, 53);
+  color: white;
+  font-family: "Varela Round", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-page-top-banner {
+  width: 100%;
+  margin-top: 70px;
+  // background-color: #fc4a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-page-display-box {
+  width: 80%;
+  background-color: rgb(53, 53, 53);
+  // background-color: #fc4a1a;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: auto 1fr;
+}
+
+.album-art-box {
+  height: 225px;
+  width: 225px;
+  max-height: 225px;
+  max-width: 225px;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.add-details-form {
+  height: 100%;
+  width: 100%;
+  color: white;
+  // border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  max-width: 42vw;
+  white-space: nowrap;
+  h1 {
+    font-size: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 10px;
+  }
+  h4 {
+    font-size: 24px;
+    color: #fc4a1a;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 5px;
+  }
+  .languages-box {
+    // border: 1px solid white;
+    display: flex;
+    margin: 20px 0px;
+  }
+  h5 {
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 10px;
+  }
+}
+
+.add-page-main-space {
+  width: 80%;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 55px;
+  border: 1px solid white;
+  .og-lyrix-input {
+    background-color: red;
+    height: 800px;
+    width: 500px;
+  }
+  .trans-lyrix-input {
+    background-color: yellow;
+    height: 800px;
+    width: 100px;
+    width: 500px;
+    margin-left: 30px;
+  }
+}
+
+.lyrics-container {
+  width: 100%;
+  border: 3px solid blue;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 18px;
+}
