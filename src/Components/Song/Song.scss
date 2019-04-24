@@ -1,5 +1,6 @@
 .song-page {
   width: 100%;
+  // height: 400vh;
   background-color: rgb(53, 53, 53);
   color: white;
   font-family: "Varela Round", sans-serif;
@@ -108,31 +109,36 @@
 
 .lyrics-space {
   width: 100%;
-  // border: 1px solid white;
+  border: 1px solid white;
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   font-size: 18px;
-  .lyrics-box {
-    // border: 1px solid white;
-    width: 500px;
-  }
-  .translation-box {
-    // border: 1px solid white;
-    width: 500px;
-    margin-left: 2rem;
-  }
-  .line-slot {
-    // border: 1px solid white;
-    height: 2rem;
+  .slot {
     margin: 15px 0px;
+    .needed-for-onClick {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      .left-words-container {
+        width: 500px;
+        border: 1px solid white;
+      }
+      .right-words-container {
+        width: 500px;
+        margin-left: 30px;
+        border: 1px solid white;
+      }
+    }
   }
-  .line-slot:hover {
+  .slot:hover {
     color: #fc4a1a;
   }
 }
 
 .explanation-box {
-  width: calc(1000px + 2rem);
+  width: calc(1000px + 30px);
   height: 10vh;
   background-color: #e4dede;
   position: sticky;

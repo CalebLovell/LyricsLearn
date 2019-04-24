@@ -3,6 +3,7 @@ import "./Song.scss";
 import { connect } from "react-redux";
 import { getUserData } from "./../../ducks/userReducer";
 import axios from "axios";
+import Slot from "./Slot/Slot";
 
 class Song extends Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class Song extends Component {
     try {
       const { songID } = this.props.match.params;
       const result = await axios.get(`/song/${songID}`);
+      // console.log(result);
       const {
         song_instance_title,
         song_instance_art,
@@ -58,9 +60,10 @@ class Song extends Component {
     try {
       const { songID } = this.props.match.params;
       const result = await axios.get(`/song/${songID}/${languageID}`);
-      console.log(result.data.songTranslation[5].line_id);
+      console.log(result);
       this.setState({
-        songTranslation: result.data.songTranslation
+        songTranslation: result.data.songTranslation,
+        newArr: result.data.newArr
       });
     } catch (err) {
       console.log(
@@ -73,41 +76,15 @@ class Song extends Component {
     this.setState({
       visibleExplanation: explanation
     });
-    console.log(this.slot);
   };
 
   render() {
-    let mappedLyrics = this.state.songLines.map((line, i) => {
-      return (
-        <div
-          className="line-slot"
-          key={i}
-          onClick={() => this.setExplanation(line.line_explanation)}
-          // onMouseOver={() => this.highlight(line.line_id)}
-          // style={(this.state.lineID === this.state.transID) ? {color: '#fc4a1a'} : {}}
-        >
-          <p className="line-lyrics">{line.line_lyrics}</p>
-        </div>
+    let mappedSlots = this.state.songLines.map((line, i) => {
+      let filteredLine = this.state.songTranslation.filter(
+        transLine => transLine.line_id === line.line_id
       );
+      return <Slot ogLine={line} transLine={filteredLine} setExplanation={this.setExplanation}/>;
     });
-    let mappedTranslation = this.state.songTranslation.map(
-      (translatedLine, i) => {
-        return (
-          <div
-            className="line-slot"
-            key={i}
-            onClick={() =>
-              this.setExplanation(translatedLine.line_translation_explanation)
-            }
-            // onMouseOver={() => this.setTransID(translatedLine.line_id)}
-          >
-            <p className="line-lyrics">
-              {translatedLine.line_translation_lyrics}
-            </p>
-          </div>
-        );
-      }
-    );
     let mappedLanguages = this.state.songTranslationLanguages.map(
       (translationLanguage, i) => {
         return (
@@ -145,10 +122,7 @@ class Song extends Component {
           </div>
         </div>
         <div className="song-page-main-space">
-          <div className="lyrics-space">
-            <div className="lyrics-box">{mappedLyrics}</div>
-            <div className="translation-box">{mappedTranslation}</div>
-          </div>
+          <div className="lyrics-space">{mappedSlots}</div>
           <div className="explanation-box">
             <div className="explanation">
               <p>{this.state.visibleExplanation}</p>
