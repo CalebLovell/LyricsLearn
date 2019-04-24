@@ -17,11 +17,8 @@ class Song extends Component {
       songTranslationLanguages: [],
       songLines: [],
       songTranslation: [],
-      visibleExplanation: "",
-      // lineID: "",
-      // transID: ""
+      visibleExplanation: ""
     };
-    // this.slot = React.createRef();
   }
 
   componentDidMount() {
@@ -32,8 +29,6 @@ class Song extends Component {
     try {
       const { songID } = this.props.match.params;
       const result = await axios.get(`/song/${songID}`);
-      console.log(result.data)
-      // console.log(result.data.songLines[5].line_id);
       const {
         song_instance_title,
         song_instance_art,
@@ -81,31 +76,12 @@ class Song extends Component {
     console.log(this.slot)
   };
 
-  // highlight = (lineID) => {
-  //   style="red"
-  // }
-
-  // setLineID = (lineID) => {
-  //   this.setState({
-  //     lineID
-  //   })
-  //   console.log(lineID)
-  // }
-
-  // setTransID = (transID) => {
-  //   this.setState({
-  //     transID
-  //   })
-  //   console.log(transID)
-  // }
-
   render() {
     let mappedLyrics = this.state.songLines.map((line, i) => {
       
       return (
         <div
           className="line-slot"
-          // ref={this.slot}
           key={i}
           onClick={() => this.setExplanation(line.line_explanation)}
           // onMouseOver={() => this.highlight(line.line_id)}
@@ -120,7 +96,6 @@ class Song extends Component {
         return (
           <div
             className="line-slot"
-            // ref={this.slot}
             key={i}
             onClick={() =>
               this.setExplanation(translatedLine.line_translation_explanation)
@@ -167,7 +142,6 @@ class Song extends Component {
               <h4>{this.state.artistName}</h4>
               <div className="languages-box">
                 {mappedLanguages}
-
                 <div className="language-button">
                   <div className="language-flag-div">
                     <img
@@ -204,23 +178,3 @@ export default connect(
   mapState,
   { getUserData }
 )(Song);
-
-// const slot = document.getElementsByClassName("line-slot")
-// const leftSlot = slot.getElementsByClassName("left")[i];
-// const rightSlot = slot.getElementsByClassName("right")[i];
-// leftSlot.onmouseover = function() {
-//   leftSlot.style.color = "red";
-//   rightSlot.style.color = "red";
-// }
-// leftSlot.onmouseout = function() {
-//   leftSlot.style.color = "red";
-//   rightSlot.style.color = "white";
-// };
-// rightSlot.onmouseover = function() {
-//   leftSlot.style.color = "red";
-//   rightSlot.style.color = "red";
-// }
-// rightSlot.onmouseout = function() {
-//   leftSlot.style.color = "white";
-//   rightSlot.style.color = "white";
-// };

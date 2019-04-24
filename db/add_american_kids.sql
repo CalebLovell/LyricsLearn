@@ -54,8 +54,7 @@ values
     ('Growin’ up in little pink houses', 47, 5, 1),
     ('Makin’ out on living room couches', 48, 5, 1),
     ('Blowin’ that smoke on Saturday night', 49, 5, 1),
-    ('A little messed up, but we’re all alright', 50, 5, 1)
-,
+    ('A little messed up, but we’re all alright', 50, 5, 1);
 
 insert into Line_Translations
     (line_translation_lyrics, line_translation_explanation, line_id, language_id, song_instance_id, line_index)
