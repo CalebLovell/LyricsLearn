@@ -73,12 +73,11 @@ class Song extends Component {
     this.setState({
       visibleExplanation: explanation
     });
-    console.log(this.slot)
+    console.log(this.slot);
   };
 
   render() {
     let mappedLyrics = this.state.songLines.map((line, i) => {
-      
       return (
         <div
           className="line-slot"
@@ -140,18 +139,7 @@ class Song extends Component {
             <div className="song-details-box">
               <h1>{this.state.songTitle}</h1>
               <h4>{this.state.artistName}</h4>
-              <div className="languages-box">
-                {mappedLanguages}
-                <div className="language-button">
-                  <div className="language-flag-div">
-                    <img
-                      src="https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Italy_flat.png"
-                      alt="language flag"
-                    />
-                  </div>
-                  <span>Italian</span>
-                </div>
-              </div>
+              <div className="languages-box">{mappedLanguages}</div>
               <h5>Translator: {this.state.userName}</h5>
             </div>
           </div>
