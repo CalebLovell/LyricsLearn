@@ -22,19 +22,7 @@ class Add extends Component {
     this.props.getUserData();
   }
 
-  splitText() {
-    const arrayOfLines = this.state.lineLyrics.split("\n");
-    for (let i = arrayOfLines.length - 1; i > 0; i--) {
-      if (arrayOfLines[i] === "") {
-        arrayOfLines.splice(i, 1);
-      }
-    }
-    console.log(arrayOfLines);
-  }
-
   submitSongInfo = async () => {
-    const { id } = this.props.user;
-    console.log(id);
     const {
       songInstanceTitle,
       artistName,
@@ -56,21 +44,20 @@ class Add extends Component {
         lineTranslationLyrics,
         lineTranslationExplanations
       });
-      if (result.data.submitted === true) {
-        this.props.history.push("/profile");
+      const { submitted, newSongInstanceID } = result.data
+      if (submitted === true) {
+        this.props.history.push(`/song/${newSongInstanceID}`);
       } else {
         alert(`Song submission failed.`);
       }
     } catch (err) {
-      console.log(`There was a problem in your submitSongInfo method: ${err}`);
+      console.log(`There was a problem in your submitSongInfo method of the Add component: ${err}`);
     }
   };
 
   render() {
-    // console.log(this.state);
     return (
       <div className="add-page">
-        <button onClick={() => this.splitText()}>Split</button>
         <div className="add-page-details-form">
           <input
             onChange={e => this.setState({ songInstanceTitle: e.target.value })}
@@ -103,24 +90,6 @@ class Add extends Component {
             placeholder="Enter Lyrics"
             onChange={e => this.setState({ lineLyrics: e.target.value })}
             value={this.state.lineLyrics}
-            type="text"
-          />
-          <textarea
-            className="trans-lyrix text-area"
-            placeholder="Enter Translations"
-            onChange={e =>
-              this.setState({ lineTranslationLyrics: e.target.value })
-            }
-            value={this.state.lineTranslationLyrics}
-            type="text"
-          />
-          <textarea
-            className="explanations text-area"
-            placeholder="Enter Explanations"
-            onChange={e =>
-              this.setState({ lineTranslationExplanations: e.target.value })
-            }
-            value={this.state.lineTranslationExplanations}
             type="text"
           />
         </div>
