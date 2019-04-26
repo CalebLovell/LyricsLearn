@@ -109,7 +109,7 @@
 
 .lyrics-space {
   width: 100%;
-  border: 1px solid white;
+  // border: 1px solid white;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -123,12 +123,12 @@
       justify-content: flex-start;
       .left-words-container {
         width: 500px;
-        border: 1px solid white;
+        // border: 1px solid white;
       }
       .right-words-container {
         width: 500px;
         margin-left: 30px;
-        border: 1px solid white;
+        // border: 1px solid white;
       }
     }
   }

@@ -4,6 +4,7 @@ const massive = require("massive");
 const session = require("express-session");
 const authCtrl = require("./controllers/authCtrl");
 const songCtrl = require("./controllers/songCtrl");
+const createCtrl = require("./controllers/createCtrl");
 
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 
@@ -38,3 +39,6 @@ app.get("/auth/logout", authCtrl.logout);
 app.get("/user/songs/:userID", songCtrl.getUserSongsList);
 app.get("/song/:songID", songCtrl.getSongInstance);
 app.get("/song/:songID/:languageID", songCtrl.getSongTranslation);
+
+// Create Song Endpoints
+app.post("/create", createCtrl.createNewEverything);

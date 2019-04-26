@@ -1,6 +1,6 @@
 .add-page {
   width: 100%;
-  // height: 400vh;
+  //   height: 400vh;
   background-color: rgb(53, 53, 53);
   color: white;
   font-family: "Varela Round", sans-serif;
@@ -9,95 +9,52 @@
   align-items: center;
 }
 
-.add-page-top-banner {
-  width: 100%;
-  margin-top: 70px;
-  // background-color: #fc4a1a;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.add-page-display-box {
+.add-page-details-form {
   width: 80%;
-  background-color: rgb(53, 53, 53);
-  // background-color: #fc4a1a;
-  display: grid;
-  grid-gap: 30px;
-  grid-template-columns: auto 1fr;
-}
-
-.album-art-box {
-  height: 225px;
-  width: 225px;
-  max-height: 225px;
-  max-width: 225px;
-  img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-}
-
-.add-details-form {
-  height: 100%;
-  width: 100%;
   color: white;
+  margin-top: 3%;
   // border: 1px solid white;
   display: flex;
   flex-direction: column;
-  max-width: 42vw;
   white-space: nowrap;
-  h1 {
-    font-size: 40px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-top: 10px;
-  }
-  h4 {
-    font-size: 24px;
-    color: #fc4a1a;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-top: 5px;
-  }
-  .languages-box {
-    // border: 1px solid white;
-    display: flex;
-    margin: 20px 0px;
-  }
-  h5 {
+  input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px;
+    font-family: "Varela Round", sans-serif;
+    color: rgb(123, 123, 123);
+    background-color: rgb(244, 244, 244);
+    font-weight: bold;
+    border: none;
+    border-radius: .5em;
     font-size: 16px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-top: 10px;
+    margin-top: 1%;
   }
 }
 
-.add-page-main-space {
+.add-page-text-areas {
   width: 80%;
   display: flex;
-  justify-content: flex-start;
-  margin-top: 55px;
-  border: 1px solid white;
-  .og-lyrix-input {
-    background-color: red;
-    height: 800px;
-    width: 500px;
+  justify-content: space-between;
+  margin: 4% 0px;
+  .text-area {
+    box-sizing: border-box;
+    width: calc(100% / 3);
+    min-height: 800px;
+    font-family: "Varela Round", sans-serif;
+    color: rgb(123, 123, 123);
+    background-color: rgb(244, 244, 244);
+    font-weight: bold;
+    font-size: 18px;
+    resize: none;
+    border: none;
+    padding: 12px;
+    border-radius: .5em;
   }
-  .trans-lyrix-input {
-    background-color: yellow;
-    height: 800px;
-    width: 100px;
-    width: 500px;
-    margin-left: 30px;
+  .trans-lyrix {
+    margin: 0px 1%;
   }
-}
-
-.lyrics-container {
-  width: 100%;
-  border: 3px solid blue;
-  display: flex;
-  justify-content: flex-start;
-  font-size: 18px;
+  .text-area::placeholder {
+    text-align: center;
+  }
 }
