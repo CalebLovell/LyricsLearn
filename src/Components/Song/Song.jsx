@@ -18,7 +18,8 @@ class Song extends Component {
       songTranslationLanguages: [],
       songLines: [],
       songTranslation: [],
-      visibleExplanation: ""
+      visibleExplanation: "",
+      isExplanationHidden: true
     };
   }
 
@@ -78,12 +79,31 @@ class Song extends Component {
     });
   };
 
+  isExplanationHidden = bool => {
+    this.setState({
+      isExplanationHidden: bool
+    });
+  };
+
+  // hidingExplanation = bool => {
+  //   setTimeout(() => {
+  //     this.isExplanationHidden(bool);
+  //   }, 3000);
+  // };
+
   render() {
     let mappedSlots = this.state.songLines.map((line, i) => {
       let filteredLine = this.state.songTranslation.filter(
         transLine => transLine.line_id === line.line_id
       );
-      return <Slot ogLine={line} transLine={filteredLine} setExplanation={this.setExplanation}/>;
+      return (
+        <Slot
+          ogLine={line}
+          transLine={filteredLine}
+          setExplanation={this.setExplanation}
+          isExplanationHidden={this.isExplanationHidden}
+        />
+      );
     });
     let mappedLanguages = this.state.songTranslationLanguages.map(
       (translationLanguage, i) => {
@@ -122,11 +142,21 @@ class Song extends Component {
           </div>
         </div>
         <div className="song-page-main-space">
-          <div className="lyrics-space">{mappedSlots}</div>
-          <div className="explanation-box">
-            <div className="explanation">
-              <p>{this.state.visibleExplanation}</p>
-            </div>
+          <div
+            className="lyrics-space"
+            { this.state.songTranslation[0] ? onMouseOver={() => this.isExplanationHidden(false)} : null}
+            onMouseOut={() => this.isExplanationHidden(true)}
+          >
+            {mappedSlots}
+          </div>
+          <div className="explanation-box-holder">
+            {!this.state.isExplanationHidden && (
+              <div className="explanation-box">
+                <div className="explanation">
+                  <p>{this.state.visibleExplanation}</p>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

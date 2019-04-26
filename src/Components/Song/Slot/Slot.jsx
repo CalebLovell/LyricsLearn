@@ -14,11 +14,11 @@ function Slot(props) {
       ) : (
         <div
           className="needed-for-onClick"
-          onClick={() =>
+          onMouseOver={() => {
             props.setExplanation(
               props.transLine[0].line_translation_explanation
-            )
-          }
+            );
+          }}
         >
           <div className="left-words-container">
             <p>{props.ogLine.line_lyrics}</p>
