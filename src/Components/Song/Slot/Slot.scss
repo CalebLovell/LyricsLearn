@@ -1,0 +1,22 @@
+.slot {
+  margin: .8em 0px;
+//   border: 1px solid red;
+  .needed-for-onClick {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    .left-words-container {
+      width: 500px;
+      // border: 1px solid white;
+    }
+    .right-words-container {
+      width: 500px;
+      margin-left: 30px;
+      // border: 1px solid white;
+    }
+  }
+}
+.slot:hover {
+  color: #fc4a1a;
+}

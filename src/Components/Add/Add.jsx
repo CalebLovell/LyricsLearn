@@ -81,7 +81,7 @@ class Add extends Component {
             onChange={e => this.setState({ songInstanceArt: e.target.value })}
             value={this.state.songInstanceArt}
             type="text"
-            placeholder="Enter Instance Art"
+            placeholder="Enter Album Art"
           />
         </div>
         <div className="add-page-text-areas">

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import "./Profile.css";
+import "./Profile.scss";
 import { connect } from "react-redux";
 import { getUserData, killUser } from "./../../ducks/userReducer";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import SongInstance from "../SongInstance/SongInstance";
 
 class Profile extends Component {
   constructor(props) {
@@ -36,17 +37,7 @@ class Profile extends Component {
     let mappedUserSongs = this.state.userSongs.map((song, i) => {
       return (
         <Link to={`/song/${song.song_instance_id}`}>
-          <div
-            className="song-instance-box"
-            key={i}
-          >
-            <div className="album-art-container">
-              <img src={`${song.song_instance_art}`} alt="album art" />
-            </div>
-            <p>{song.song_instance_title}</p>
-            <p>{song.artist_name}</p>
-            <p>{song.user_name}</p>
-          </div>
+          <SongInstance key={i} song={song} />
         </Link>
       );
     });
@@ -54,21 +45,28 @@ class Profile extends Component {
       <>
         {id && (
           <div className="profile-page">
-            <div className="account-info-container">
-              <div className="account-pic">
-                <img src={`${image}`} alt="profile pic" />
-              </div>
-              <h1>{`${name}`}</h1>
-              <div className="account-buttons-container">
-                <Link to="/add">
-                  <button>Add a Song</button>
-                </Link>
-                <Link to="/editInfo">
-                  <button>Edit Account Info</button>
-                </Link>
+            <div className="top-banner">
+              <div className="account-info-container">
+                <div className="account-pic">
+                  <img src={`${image}`} alt="profile pic" />
+                </div>
+                <h1>{`${name}`}</h1>
+                <div className="account-buttons-container">
+                  <Link to="/add">
+                    <button>Add a Song</button>
+                  </Link>
+                  <Link to="/editInfo">
+                    <button>Edit Account Info</button>
+                  </Link>
+                </div>
               </div>
             </div>
-            <div className="user-songs-container">{mappedUserSongs}</div>
+            <div className="main-banner">
+              <div className="users-songs-title">
+                <h1>User's Songs</h1>
+              </div>
+              <div className="user-songs-container">{mappedUserSongs}</div>
+            </div>
           </div>
         )}
       </>

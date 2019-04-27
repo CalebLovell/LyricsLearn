@@ -2,7 +2,7 @@ const bcrypt = require("bcryptjs");
 
 module.exports = {
   signup: async (req, res) => {
-    const { name, email, password, image } = req.body;
+    let { name, email, password, image } = req.body;
     try {
       const db = await req.app.get("db");
       const existingEmailArray = await db.get_user_emails([email]);
@@ -13,6 +13,10 @@ module.exports = {
       }
       const salt = bcrypt.genSaltSync(10);
       const hash = bcrypt.hashSync(password, salt);
+      if (image === "") {
+        image =
+          "http://wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png";
+      }
       let newUserArray = await db.create_user([name, email, hash, image]);
       req.session.user = {
         id: newUserArray[0].user_id,

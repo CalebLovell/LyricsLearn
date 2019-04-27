@@ -12,6 +12,35 @@ header {
   width: 80%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.site-nav {
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #fc4a1a;
+  }
+  .profile-pic {
+    height: 35px;
+    width: 35px;
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+    }
+  }
+  .divider-line {
+    border-right: 1px solid white;
+    height: 4vh;
+  }
 }
 
 .logo {
@@ -34,31 +63,31 @@ header {
   }
 }
 
-.site-nav {
-  width: 400px;
+.search-box {
+  width: 350px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  font-size: 16px;
-  a {
+  // border: 1px solid white;
+  input {
+    width: 100%;
+    // border: 1px solid white;
+    // margin-left: 20px;
+    font-size: 18px;
+    font-family: "Montserrat", sans-serif;
     color: white;
-    text-decoration: none;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    padding: 8px;
   }
-  a:hover {
-    color: #fc4a1a;
-  }
-  .profile-pic {
-    height: 35px;
-    width: 35px;
-    img {
-      object-fit: cover;
-      height: 100%;
-      width: 100%;
-      border-radius: 50%;
-    }
-  }
-  .divider-line {
-    border-right: 1px solid white;
-    height: 4vh;
+  input::placeholder {
+    font-size: 16px;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 100;
+    // letter-spacing: .05em;
   }
 }

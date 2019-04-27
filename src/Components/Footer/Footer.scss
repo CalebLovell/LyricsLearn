@@ -1,0 +1,38 @@
+footer {
+  height: calc(8vh - 1px);
+  background-color: rgb(53, 53, 53);
+  border-top: 1px solid white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.footer-container {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-size: 12px;
+  a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    img {
+      height: 25px;
+      width: 25px;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+    p {
+      text-decoration: none;
+    }
+    p:hover {
+      color: #fc4a1a;
+    }
+    &:visited {
+      color: white;
+    }
+  }
+}

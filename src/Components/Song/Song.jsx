@@ -80,16 +80,12 @@ class Song extends Component {
   };
 
   isExplanationHidden = bool => {
-    this.setState({
-      isExplanationHidden: bool
-    });
+    if (this.state.songTranslation[0]) {
+      this.setState({
+        isExplanationHidden: bool
+      });
+    }
   };
-
-  // hidingExplanation = bool => {
-  //   setTimeout(() => {
-  //     this.isExplanationHidden(bool);
-  //   }, 3000);
-  // };
 
   render() {
     let mappedSlots = this.state.songLines.map((line, i) => {
@@ -137,14 +133,14 @@ class Song extends Component {
               <h1>{this.state.songTitle}</h1>
               <h4>{this.state.artistName}</h4>
               <div className="languages-box">{mappedLanguages}</div>
-              <h5>Translator: {this.state.userName}</h5>
+              <h5>Author: {this.state.userName}</h5>
             </div>
           </div>
         </div>
         <div className="song-page-main-space">
           <div
             className="lyrics-space"
-            { this.state.songTranslation[0] ? onMouseOver={() => this.isExplanationHidden(false)} : null}
+            onMouseOver={() => this.isExplanationHidden(false)}
             onMouseOut={() => this.isExplanationHidden(true)}
           >
             {mappedSlots}

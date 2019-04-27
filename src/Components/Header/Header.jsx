@@ -19,12 +19,6 @@ class Header extends Component {
     return (
       <header>
         <div className="header-container">
-          <Link to="/">
-            <div className="logo">
-              <img src="https://via.placeholder.com/150" alt="site logo" />
-              <h1 className="lyrixlog">Lyrixlog</h1>
-            </div>
-          </Link>
           <ul className="site-nav">
             <Link to="/">
               <li>Home</li>
@@ -58,6 +52,18 @@ class Header extends Component {
               </>
             )}
           </ul>
+          <Link to="/">
+            <div className="logo">
+              <img src="https://via.placeholder.com/150" alt="site logo" />
+              <h1>LyricsLearn</h1>
+            </div>
+          </Link>
+          <div className="search-box">
+            <input
+              type="text"
+              placeholder="Search... for a song, artist or user here"
+            />
+          </div>
         </div>
       </header>
     );

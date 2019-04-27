@@ -2,7 +2,7 @@ CREATE TABLE Users
 (
 	user_id serial NOT NULL UNIQUE,
 	user_name varchar(50) NOT NULL,
-	user_image TEXT,
+	user_image TEXT DEFAULT 'http://wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png',
 	user_email varchar(100) NOT NULL UNIQUE,
 	user_hash TEXT NOT NULL,
 	CONSTRAINT Users_pk PRIMARY KEY (user_id)
