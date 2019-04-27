@@ -63,7 +63,7 @@ class Profile extends Component {
             </div>
             <div className="main-banner">
               <div className="users-songs-title">
-                <h1>User's Songs</h1>
+                <h1>Your Songs</h1>
               </div>
               <div className="user-songs-container">{mappedUserSongs}</div>
             </div>
