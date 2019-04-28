@@ -1,0 +1,9 @@
+update Languages set language_flag_circular = 'https://image.flaticon.com/icons/svg/197/197484.svg' where language_id = 19;
+update Languages set language_flag_circular = 'https://image.flaticon.com/icons/svg/197/197593.svg' where language_id = 20;
+update Languages set language_flag_circular = 'https://image.flaticon.com/icons/svg/197/197386.svg' where language_id = 21;
+update Languages set language_flag_circular = 'https://image.flaticon.com/icons/svg/197/197626.svg' where language_id = 22;
+update Languages set language_flag_circular = 'https://image.flaticon.com/icons/svg/197/197560.svg' where language_id = 23;
+update Languages set language_flag_circular = 'https://image.flaticon.com/icons/svg/197/197571.svg' where language_id = 24;
+update Languages set language_flag_circular = 'https://image.flaticon.com/icons/svg/197/197518.svg' where language_id = 25;
+update Languages set language_flag_circular = 'https://image.flaticon.com/icons/svg/197/197408.svg' where language_id = 26;
+update Languages set language_flag_circular = 'https://image.flaticon.com/icons/svg/197/197375.svg' where language_id = 27;

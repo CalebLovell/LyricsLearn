@@ -1,12 +1,12 @@
-insert into Languages(language_name, language_flag) values('English', 'https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/United-Kingdom_flat.png');
-insert into Languages(language_name, language_flag) values('Spanish', 'https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Spain_flat.png');
-insert into Languages(language_name, language_flag) values('Portuguese', 'https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Brazil_flat.png');
-insert into Languages(language_name, language_flag) values('Italian', 'https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Italy_flat.png');
-insert into Languages(language_name, language_flag) values('French', 'https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/France_flat.png');
-insert into Languages(language_name, language_flag) values('German', 'https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Germany_flat.png');
-insert into Languages(language_name, language_flag) values('Turkish', 'https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Turkey_flat.png');
-insert into Languages(language_name, language_flag) values('Russian', 'https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Russia_flat.png');
-insert into Languages(language_name, language_flag) values('Chinese', 'https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/China_flat.png');
+insert into Languages(language_name, language_flag, language_flag_circular) values('English', 'https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/United-States_flat.png', 'https://image.flaticon.com/icons/svg/197/197484.svg');
+insert into Languages(language_name, language_flag, language_flag_circular) values('Spanish', 'https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Spain_flat.png', 'https://image.flaticon.com/icons/svg/197/197593.svg');
+insert into Languages(language_name, language_flag, language_flag_circular) values('Portuguese', 'https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Brazil_flat.png', 'https://image.flaticon.com/icons/svg/197/197386.svg');
+insert into Languages(language_name, language_flag, language_flag_circular) values('Italian', 'https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Italy_flat.png', 'https://image.flaticon.com/icons/svg/197/197626.svg');
+insert into Languages(language_name, language_flag, language_flag_circular) values('French', 'https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/France_flat.png', 'https://image.flaticon.com/icons/svg/197/197560.svg');
+insert into Languages(language_name, language_flag, language_flag_circular) values('German', 'https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Germany_flat.png', 'https://image.flaticon.com/icons/svg/197/197571.svg');
+insert into Languages(language_name, language_flag, language_flag_circular) values('Turkish', 'https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Turkey_flat.png', 'https://image.flaticon.com/icons/svg/197/197518.svg');
+insert into Languages(language_name, language_flag, language_flag_circular) values('Russian', 'https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Russia_flat.png', 'https://image.flaticon.com/icons/svg/197/197408.svg');
+insert into Languages(language_name, language_flag, language_flag_circular) values('Chinese', 'https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/China_flat.png', 'https://image.flaticon.com/icons/svg/197/197375.svg');
 
 insert into Artists (artist_name) values('Calle 13');
 insert into Artists (artist_name) values('Mahmood');

@@ -1,18 +1,39 @@
 .slot {
-  margin: .8em 0px;
-//   border: 1px solid red;
+  margin: 0.8em 0px;
+  // border: 1px solid white;
+  // width: 100%;
   .needed-for-onClick {
     height: 100%;
-    width: 100%;
+    // width: 100%;
     display: flex;
     justify-content: flex-start;
+    // border: 1px solid white;
+    .line-flag {
+      height: 1em;
+      width: 1em;
+      position: relative;
+      right: 3vw;
+      border-radius: 50%;
+      // border: 1px solid white;
+      img {
+        // object-fit: contain;
+        height: 100%;
+        width: 100%;
+      }
+    }
     .left-words-container {
       width: 500px;
       // border: 1px solid white;
+      display: flex;
+      justify-content: flex-start;
+      position: relative;
+      right: 1em;
     }
     .right-words-container {
       width: 500px;
-      margin-left: 30px;
+      margin-left: 1vw;
+      position: relative;
+      right: 1em;
       // border: 1px solid white;
     }
   }

@@ -61,7 +61,7 @@ class Song extends Component {
     try {
       const { songID } = this.props.match.params;
       const result = await axios.get(`/song/${songID}/${languageID}`);
-      console.log(result);
+      // console.log(result);
       this.setState({
         songTranslation: result.data.songTranslation,
         newArr: result.data.newArr
@@ -144,7 +144,6 @@ class Song extends Component {
             onMouseOut={() => this.isExplanationHidden(true)}
           >
             {mappedSlots}
-          </div>
           <div className="explanation-box-holder">
             {!this.state.isExplanationHidden && (
               <div className="explanation-box">
@@ -153,6 +152,7 @@ class Song extends Component {
                 </div>
               </div>
             )}
+          </div>
           </div>
         </div>
       </div>

@@ -61,7 +61,7 @@ class Header extends Component {
           <div className="search-box">
             <input
               type="text"
-              placeholder="Search by title, artist, language or user"
+              placeholder="Search songs by title, artist, or language"
             />
           </div>
         </div>
