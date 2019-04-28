@@ -39,6 +39,7 @@ app.get("/auth/logout", authCtrl.logout);
 app.get("/user/songs/:userID", songCtrl.getUserSongsList);
 app.get("/song/:songID", songCtrl.getSongInstance);
 app.get("/song/:songID/:languageID", songCtrl.getSongTranslation);
+app.get("/songs/recent", songCtrl.getRecentSongs);
 
 // Create Song Endpoints
 app.post("/create", createCtrl.createNewEverything);
