@@ -1,0 +1,17 @@
+button {
+  font-family: $font-body;
+  font-size: 14px;
+  color: $base-light;
+  background-color: $accent-dark;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 12px 20px;
+  transition: all 0.1s ease-in-out;
+}
+button:hover {
+  color: $base-light;
+  background-color: $accent-light;
+  cursor: pointer;
+  transform: scale(1.2);
+}

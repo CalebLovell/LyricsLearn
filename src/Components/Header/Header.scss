@@ -1,16 +1,18 @@
+@import "./src/variables";
+
 header {
-  height: calc(8vh - 1px);
-  background-color: rgb(53, 53, 53);
-  border-bottom: 1px solid white;
+  height: 6vh;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.08);
+  background-color: $base-light;
+  font-family: $font-title;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  font-family: "Montserrat", sans-serif;
 }
 
 .header-container {
   width: 80%;
-  border: 1px solid white;
+  // border: 1px solid white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,11 +24,11 @@ header {
   justify-content: space-between;
   align-items: center;
   a {
-    color: white;
+    color: $base-dark;
     text-decoration: none;
   }
   a:hover {
-    color: #fc4a1a;
+    color: $accent-dark;
   }
   .profile-pic {
     height: 35px;
@@ -39,7 +41,7 @@ header {
     }
   }
   .divider-line {
-    border-right: 1px solid white;
+    border-right: 1px solid $base-dark;
     height: 4vh;
   }
 }
@@ -58,9 +60,10 @@ header {
     color: white;
     font-size: 36px;
     text-decoration: none;
+    color: $base-dark;
   }
   h1:hover {
-    color: #fc4a1a;
+    color: $accent-dark;
   }
 }
 
@@ -75,8 +78,8 @@ header {
     // border: 1px solid white;
     // margin-left: 20px;
     font-size: 18px;
-    font-family: "Montserrat", sans-serif;
-    color: white;
+    font-family: $font-title;
+    color: $base-dark;
     background: transparent;
     border: none;
     outline: none;
@@ -86,8 +89,8 @@ header {
   }
   input::placeholder {
     font-size: 16px;
-    color: white;
-    font-family: "Montserrat", sans-serif;
+    color: $base-dark;
+    font-family: $font-title;
     font-weight: 100;
     // letter-spacing: .05em;
   }

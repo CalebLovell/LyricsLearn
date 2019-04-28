@@ -1,23 +1,25 @@
+@import "./src/variables";
+
 .song-instance-box {
-  color: white;
-  font-family: "Varela Round", sans-serif;
+  color: $base-light;
+  font-family: $font-body;
+  transition: all 0.1s ease-in-out;
   .art-box {
     height: calc(74vw / 4);
-    box-sizing: border-box;
-    background-color: grey;
+    background-color: $base-dark;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
   }
   .song-instance-descriptions-box {
     padding: 0.5em;
-    background-color: white;
-    border-top: 3px solid rgb(53, 53, 53);
+    background-color: $base-light;
+    border-top: 3px solid $base-dark;
     h5 {
       font-size: 16px;
-      color: black;
+      color: $base-dark;
       &:hover {
-        color: #fc4a1a;
+        color: $accent-dark;
       }
     }
     h6 {
@@ -25,11 +27,13 @@
       font-size: 12px;
       color: grey;
       &:hover {
-        color: #fc4a1a;
+        color: $accent-dark;
       }
     }
   }
+  box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.5);
   &:hover {
-    box-shadow: 0 0 10px 10px rgba(255, 255, 255, .5);
+    box-shadow: 0 15px 60px 0px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
   }
 }

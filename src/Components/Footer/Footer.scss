@@ -1,20 +1,22 @@
+@import "./src/variables";
+
 footer {
-  height: calc(8vh - 1px);
-  background-color: rgb(53, 53, 53);
-  border-top: 1px solid white;
+  height: 6vh;
+  background-color: $base-light;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.08);
   display: flex;
   justify-content: space-around;
   align-items: center;
-  font-family: "Montserrat", sans-serif;
+  font-family: $font-title;
 }
 
 .footer-container {
   width: 80%;
-  border: 1px solid white;
+  // border: 1px solid white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: $base-dark;
   font-size: 12px;
   a {
     display: flex;
@@ -30,10 +32,10 @@ footer {
       text-decoration: none;
     }
     p:hover {
-      color: #fc4a1a;
+      color: $accent-dark;
     }
     &:visited {
-      color: white;
+      color: $base-dark;
     }
   }
 }
