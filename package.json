@@ -33,6 +33,6 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": "http://165.22.133.120:7999",
+  "proxy": "http://localhost:7999",
   "main": "server/server.js"
 }
