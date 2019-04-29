@@ -1,0 +1,1 @@
+select * from song_instances si join artists a on a.artist_id = si.artist_id where language_id = 19 limit 4;

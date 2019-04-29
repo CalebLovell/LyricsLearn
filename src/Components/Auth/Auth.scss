@@ -1,0 +1,93 @@
+@import "./../../variables";
+@import "./../../utilities";
+
+.auth-page {
+  width: 100%;
+  min-height: 88vh;
+  background-color: $base-dark;
+  // background-image: $gradient-dark;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  border: 4px solid $accent-dark;
+  background-color: $base-dark;
+  box-shadow: 0 15px 60px 0px rgba(225, 225, 225, 0.5);
+  border-radius: 10px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .h4-div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+    // border: 1px solid white;
+    h4 {
+      color: $accent-dark;
+      font-family: $font-title;
+      font-weight: bold;
+      font-size: 20px;
+      color: $base-light;
+    }
+  }
+  .input-slot {
+    font-size: 16px;
+    width: 500px;
+    margin-top: 20px;
+    // border: 1px solid white;
+    display: flex;
+    align-items: center;
+  }
+  input {
+    // border: 1px solid white;
+    width: 100%;
+    padding: 12px;
+    font-family: $font-body;
+    color: $base-dark;
+    background-color: $base-light;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    &::placeholder {
+      color: $base-dark;
+      opacity: 1;
+      font-family: $font-body;
+    }
+  }
+  button {
+    margin-top: 35px;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  p {
+    margin-top: 20px;
+    color: $accent-dark;
+    font-family: $font-title;
+    font-style: italic;
+    font-size: 12px;
+  }
+}
+
+.form a p:hover {
+  color: $accent-light;
+}
+
+.icon {
+  color: $accent-dark;
+  margin-right: 20px;
+  // border: 1px solid white;
+}
+
+.fa-user {
+  font-size: 18px;
+}

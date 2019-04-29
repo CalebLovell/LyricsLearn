@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { getUserData } from "../../../ducks/userReducer";
-import "../Auth.css";
+import "../Auth.scss";
 
 class EditInfo extends Component {
   constructor(props) {

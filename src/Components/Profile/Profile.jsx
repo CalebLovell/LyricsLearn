@@ -53,10 +53,14 @@ class Profile extends Component {
                 <h1>{`${name}`}</h1>
                 <div className="account-buttons-container">
                   <Link to="/add">
-                    <button>Add a Song</button>
+                    <div className="lefty">
+                      <button>Add a Song</button>
+                    </div>
                   </Link>
                   <Link to="/editInfo">
-                    <button>Edit Account Info</button>
+                    <div>
+                      <button>Edit Account</button>
+                    </div>
                   </Link>
                 </div>
               </div>

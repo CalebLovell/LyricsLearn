@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "../Auth.css";
+import "../Auth.scss";
 
 class Login extends Component {
   constructor(props) {

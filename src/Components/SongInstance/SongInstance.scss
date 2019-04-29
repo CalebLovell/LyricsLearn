@@ -5,6 +5,7 @@
   font-family: $font-body;
   transition: all 0.1s ease-in-out;
   .art-box {
+    width: 100%;
     height: calc(74vw / 4);
     background-color: $base-dark;
     background-repeat: no-repeat;
@@ -15,7 +16,10 @@
     padding: 0.5em;
     background-color: $base-light;
     border-top: 3px solid $base-dark;
+    white-space: nowrap;
     h5 {
+      overflow: hidden;
+      text-overflow: ellipsis;
       font-size: 16px;
       color: $base-dark;
       &:hover {
@@ -23,6 +27,8 @@
       }
     }
     h6 {
+      overflow: hidden;
+      text-overflow: ellipsis;
       padding-top: 0.3em;
       font-size: 12px;
       color: grey;

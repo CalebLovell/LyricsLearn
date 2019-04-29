@@ -17,6 +17,14 @@ module.exports = {
           message: `We do not currently support that language. Please contact the site creator and he will add it asap.`
         });
       }
+      // Set default title if empty
+      if (songInstanceTitle === "") {
+        songInstanceTitle = "Title Unknown";
+      }
+      // Set default artist if empty
+      if (artistName === "") {
+        artistName = "Unknown Artist";
+      }
       // Set default album art image if empty
       if (songInstanceArt === "") {
         songInstanceArt =

@@ -10,28 +10,37 @@ class Landing extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userSongs: []
+      recentSongs: [],
+      englishSongs: []
     };
   }
 
   componentDidMount = async () => {
-    this.getRecentSongs();
+    this.getSongs();
   };
 
-  getRecentSongs = async () => {
+  getSongs = async () => {
     try {
-      const result = await axios.get(`/songs/recent`);
+      const result = await axios.get(`/songs`);
       this.setState({
-        userSongs: result.data.recentSongs
+        recentSongs: result.data.recentSongs,
+        englishSongs: result.data.englishSongs
       });
     } catch (err) {
       console.log(
-        `The getRecentSongs method on the Landing component had a problem: ${err}`
+        `The getSongs method on the Landing component had a problem: ${err}`
       );
     }
   };
   render() {
-    let mappedSongs = this.state.userSongs.map((song, i) => {
+    let mappedRecentSongs = this.state.recentSongs.map((song, i) => {
+      return (
+        <Link to={`/song/${song.song_instance_id}`}>
+          <SongInstance key={i} song={song} />
+        </Link>
+      );
+    });
+    let mappedEnglishSongs = this.state.englishSongs.map((song, i) => {
       return (
         <Link to={`/song/${song.song_instance_id}`}>
           <SongInstance key={i} song={song} />
@@ -43,22 +52,30 @@ class Landing extends Component {
         <div className="top-banner">
           <div className="search-container">
             <h1>Welcome to LyricsLearn!</h1>
-            <h1>
-              Explore our song library below to start learning, or login to
-              start contributing.
-            </h1>
-            <Link to="/signup">
-              <button>Sign Up</button>
-            </Link>
-            <Link to="/login">
-              <button>Login</button>
-            </Link>
+            <div className="buttons-container">
+              <Link to="/login">
+                <button className="login">Login</button>
+              </Link>
+              <Link to="/signup">
+                <button>Sign Up</button>
+              </Link>
+            </div>
           </div>
         </div>
         <div className="main-banner">
           <div className="main-banner-organizer">
             <h1>Most Recent Translations</h1>
-            <div className="first-four-songs-container">{mappedSongs}</div>
+            <div className="first-four-songs-container">
+              {mappedRecentSongs}
+            </div>
+          </div>
+        </div>
+        <div className="main-banner">
+          <div className="main-banner-organizer">
+            <h1>Popular Songs in English</h1>
+            <div className="first-four-songs-container">
+              {mappedEnglishSongs}
+            </div>
           </div>
         </div>
       </div>

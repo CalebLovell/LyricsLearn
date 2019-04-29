@@ -53,16 +53,18 @@ module.exports = {
         .send(`The getSongTranslation function had a problem: ${err}`);
     }
   },
-  getRecentSongs: async (req, res) => {
+  getSongs: async (req, res) => {
     try {
       const db = await req.app.get("db");
       const recentSongs = await db.get_recent_songs();
+      const englishSongs = await db.get_english_songs();
       res.status(200).send({
-        message: `Recent songs sent.`,
-        recentSongs
+        message: `Songs sent.`,
+        recentSongs,
+        englishSongs
       });
     } catch (err) {
-      res.status(500).send(`The getRecentSongs function had a problem: ${err}`);
+      res.status(500).send(`The getSongs function had a problem: ${err}`);
     }
   }
 };
