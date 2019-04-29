@@ -6,7 +6,8 @@ module.exports = {
       artistName,
       languageName,
       songInstanceArt,
-      lineLyrics
+      lineLyrics,
+      lineTranslationLyrics
     } = req.body;
     try {
       const db = await req.app.get("db");
@@ -35,6 +36,13 @@ module.exports = {
       for (let i = arrayOfLines.length - 1; i > 0; i--) {
         if (arrayOfLines[i] === "") {
           arrayOfLines.splice(i, 1);
+        }
+      }
+      // Break lineTranslationLyrics from text-area element into a lineTranslations array
+      const arrayOfLineTranslations = lineTranslationLyrics.split("\n");
+      for (let i = arrayOfLineTranslations.length - 1; i > 0; i--) {
+        if (arrayOfLineTranslations[i] === "") {
+          arrayOfLineTranslations.splice(i, 1);
         }
       }
       // Check if artist exists; get the ID if it does, create a new artist and get that new ID if it doesn't

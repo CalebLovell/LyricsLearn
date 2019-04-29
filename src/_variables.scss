@@ -2,7 +2,7 @@
 $base-light: rgba(251, 253, 253, 1);
 $base-dark: rgba(53, 53, 53, 1);
 $accent-light: rgba(255, 106, 46, 1);
-$accent-dark: rgba(255, 59, 63, 1);
+$accent-dark: orangered;
 
 // Fonts
 $font-title: "Montserrat", sans-serif;
@@ -11,3 +11,5 @@ $font-body: "Varela Round", sans-serif;
 // Gradients
 $gradient-light: linear-gradient(135deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2));
 $gradient-dark: linear-gradient(135deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+// $gradient-red: linear-gradient(135deg, rgba(255, 59, 63, 1), #801D1F);
+

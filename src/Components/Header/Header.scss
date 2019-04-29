@@ -3,7 +3,7 @@
 header {
   height: 6vh;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.08);
-  background-color: $base-light;
+  background-color: $base-dark;
   font-family: $font-title;
   display: flex;
   justify-content: space-around;
@@ -12,7 +12,6 @@ header {
 
 .header-container {
   width: 80%;
-  // border: 1px solid white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,7 +23,7 @@ header {
   justify-content: space-between;
   align-items: center;
   a {
-    color: $base-dark;
+    color: $base-light;
     text-decoration: none;
   }
   a:hover {
@@ -41,7 +40,7 @@ header {
     }
   }
   .divider-line {
-    border-right: 1px solid $base-dark;
+    border-right: 1px solid $base-light;
     height: 4vh;
   }
 }
@@ -56,11 +55,9 @@ header {
     width: 35px;
   }
   h1 {
-    margin-left: 20px;
-    color: white;
-    font-size: 36px;
+    font-size: 30px;
     text-decoration: none;
-    color: $base-dark;
+    color: $base-light;
   }
   h1:hover {
     color: $accent-dark;
@@ -72,14 +69,11 @@ header {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  // border: 1px solid white;
   input {
     width: 100%;
-    // border: 1px solid white;
-    // margin-left: 20px;
     font-size: 18px;
     font-family: $font-title;
-    color: $base-dark;
+    color: $base-light;
     background: transparent;
     border: none;
     outline: none;
@@ -89,9 +83,8 @@ header {
   }
   input::placeholder {
     font-size: 16px;
-    color: $base-dark;
+    color: $base-light;
     font-family: $font-title;
     font-weight: 100;
-    // letter-spacing: .05em;
   }
 }

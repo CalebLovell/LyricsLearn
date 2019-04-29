@@ -2,7 +2,7 @@ import React from "react";
 import "./Slot.scss";
 
 function Slot(props) {
-  console.log(props.ogLine);
+  // console.log(props.ogLine);
   return (
     <div className="slot">
       {!props.transLine[0] ? (

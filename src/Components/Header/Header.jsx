@@ -54,7 +54,7 @@ class Header extends Component {
           </ul>
           <Link to="/">
             <div className="logo">
-              <img src="https://via.placeholder.com/150" alt="site logo" />
+              {/* <img src="https://via.placeholder.com/150" alt="site logo" /> */}
               <h1>LyricsLearn</h1>
             </div>
           </Link>

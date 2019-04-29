@@ -50,28 +50,32 @@ class Landing extends Component {
     return (
       <div className="landing-page">
         <div className="top-banner">
-          <div className="search-container">
-            <h1>Welcome to LyricsLearn!</h1>
+          <div className="welcome-container">
+            <h1>Welcome!</h1>
             <div className="buttons-container">
               <Link to="/login">
-                <button className="login">Login</button>
+                <div className="lefty">
+                  <button className="left-button">Login</button>
+                </div>
               </Link>
               <Link to="/signup">
-                <button>Sign Up</button>
+                <div className="righty">
+                  <button className="right-button">Sign Up</button>
+                </div>
               </Link>
             </div>
           </div>
         </div>
-        <div className="main-banner">
-          <div className="main-banner-organizer">
+        <div className="main-banner one">
+          <div className="main-banner-container">
             <h1>Most Recent Translations</h1>
             <div className="first-four-songs-container">
               {mappedRecentSongs}
             </div>
           </div>
         </div>
-        <div className="main-banner">
-          <div className="main-banner-organizer">
+        <div className="main-banner two">
+          <div className="main-banner-container">
             <h1>Popular Songs in English</h1>
             <div className="first-four-songs-container">
               {mappedEnglishSongs}

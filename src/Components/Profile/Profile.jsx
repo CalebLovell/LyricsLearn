@@ -51,15 +51,15 @@ class Profile extends Component {
                   <img src={`${image}`} alt="profile pic" />
                 </div>
                 <h1>{`${name}`}</h1>
-                <div className="account-buttons-container">
+                <div className="buttons-container">
                   <Link to="/add">
                     <div className="lefty">
-                      <button>Add a Song</button>
+                      <button className="left-button">Add a Song</button>
                     </div>
                   </Link>
                   <Link to="/editInfo">
-                    <div>
-                      <button>Edit Account</button>
+                    <div className="righty">
+                      <button className="right-button">Edit Account</button>
                     </div>
                   </Link>
                 </div>

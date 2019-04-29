@@ -1,60 +1,77 @@
+@import "./src/variables";
+@import "./src/utilities";
+
 .add-page {
   width: 100%;
   min-height: 84vh;
-  background-color: rgb(53, 53, 53);
-  color: white;
-  font-family: "Varela Round", sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  font-family: $font-body;
+  .top-banner h1 {
+    margin-bottom: 3vh;
+  }
 }
 
 .add-page-details-form {
-  // border: 1px solid white;
   width: 80%;
-  color: white;
-  margin-top: 3%;
+  height: 230px;
+  padding: 11px;
+  border-radius: 10px;
+  color: $accent-light;
+  background-color: $base-dark;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   white-space: nowrap;
   input {
-    box-sizing: border-box;
     width: 100%;
     padding: 12px;
-    font-family: "Varela Round", sans-serif;
-    color: rgb(123, 123, 123);
-    background-color: rgb(244, 244, 244);
-    font-weight: bold;
     border: none;
     border-radius: 0.5em;
+    font-family: $font-body;
+    font-weight: bold;
     font-size: 16px;
-    margin-top: 1%;
+    color: $base-dark;
+    background-color: $base-light;
+    outline: none;
+    &::placeholder {
+      font-family: $font-title;
+      font-size: 16px;
+      color: $base-dark;
+    }
   }
+}
+
+.add-page .main-banner button {
+  max-height: 45px;
+  max-width: 6.9vw;
 }
 
 .add-page-text-areas {
   width: 80%;
+  margin: 4% 0px;
   display: flex;
   justify-content: space-between;
-  margin: 4% 0px;
+  align-items: center;
   .text-area {
-    box-sizing: border-box;
-    width: calc(100% / 3);
-    min-height: 800px;
-    font-family: "Varela Round", sans-serif;
-    color: rgb(123, 123, 123);
-    background-color: rgb(244, 244, 244);
-    font-weight: bold;
-    font-size: 18px;
-    resize: none;
-    border: none;
+    width: 42%;
+    min-height: 600px;
     padding: 12px;
+    border: none;
     border-radius: 0.5em;
+    font-family: $font-body;
+    font-size: 18px;
+    font-weight: bold;
+    color: $base-dark;
+    background-color: $base-light;
+    resize: none;
+    outline: none;
+    &::placeholder {
+      font-family: $font-title;
+      font-size: 16px;
+      color: $base-dark;
+      text-align: center;
+    }
   }
   .trans-lyrix {
     margin: 0px 1%;
-  }
-  .text-area::placeholder {
-    text-align: center;
   }
 }
