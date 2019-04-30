@@ -38,21 +38,30 @@
       color: $base-dark;
     }
   }
+  .language-inputs-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .new-lang-input,
+  .og-lang-input {
+    width: 49.5%;
+  }
 }
 
 .add-page .main-banner button {
   max-height: 45px;
   max-width: 6.9vw;
+  margin-bottom: 2%;
 }
 
 .add-page-text-areas {
   width: 80%;
-  margin: 4% 0px;
+  margin: 4% 0 2% 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   .text-area {
-    width: 42%;
+    width: 30%;
     min-height: 600px;
     padding: 12px;
     border: none;

@@ -8,7 +8,8 @@ module.exports = {
       newLanguageName,
       songInstanceArt,
       lineLyrics,
-      lineTranslationLyrics
+      lineTranslationLyrics,
+      lineTranslationExplanations
     } = req.body;
     try {
       const db = await req.app.get("db");
@@ -49,6 +50,15 @@ module.exports = {
           arrayOfLineTranslations.splice(i, 1);
         }
       }
+      // Break lineTranslationExplanations from text-area element into a lineTranslationExplanations array
+      const arrayOfLineTranslationExplanations = lineTranslationExplanations.split(
+        "\n"
+      );
+      for (let i = arrayOfLineTranslationExplanations.length - 1; i > 0; i--) {
+        if (arrayOfLineTranslationExplanations[i] === "") {
+          arrayOfLineTranslationExplanations.splice(i, 1);
+        }
+      }
       // Check if artist exists; get the ID if it does, create a new artist and get that new ID if it doesn't
       const artistID = await db.get_artist_id([artistName]);
       if (artistID[0]) {
@@ -69,12 +79,25 @@ module.exports = {
             ]);
             if (newLineID) {
               arrayOfLineTranslations.map(async lineTranslation => {
-                await db.create_new_line_translations([
-                  lineTranslation,
-                  newSongInstanceID[0].song_instance_id,
-                  languageID[1].language_id,
-                  newLineID[0].line_id                  
-                ]);
+                const newLineTranslationID = await db.create_new_line_translations(
+                  [
+                    lineTranslation,
+                    newSongInstanceID[0].song_instance_id,
+                    languageID[1].language_id,
+                    newLineID[0].line_id
+                  ]
+                );
+                if (newLineTranslationID) {
+                  arrayOfLineTranslationExplanations.map(
+                    async lineTranslationExplanation => {
+                      await db.create_new_line_translation_explanation([
+                        lineTranslationExplanation,
+                        newLineTranslationID[0].line_id
+                      ]);
+                    }
+                  );
+                  return;
+                }
                 return lineTranslation;
               });
             }
@@ -98,20 +121,33 @@ module.exports = {
         ]);
         // Use newly create songInstanceID to enter every line of lyrics into db column lines
         if (newSongInstanceID[0]) {
-          arrayOfLines.map(line => {
-            const newLineID = db.create_new_line([
+          arrayOfLines.map(async line => {
+            const newLineID = await db.create_new_lines([
               line,
               newSongInstanceID[0].song_instance_id,
               languageID[0].language_id
             ]);
             if (newLineID) {
-              arrayOfLineTranslations.map(lineTranslation => {
-                db.create_new_line_translations([
-                  lineTranslation,
-                  newSongInstanceID[0].song_instance_id,
-                  languageID[1].language_id,
-                  newLineID[0].line_id                  
-                ]);
+              arrayOfLineTranslations.map(async lineTranslation => {
+                const newLineTranslationID = await db.create_new_line_translations(
+                  [
+                    lineTranslation,
+                    newSongInstanceID[0].song_instance_id,
+                    languageID[1].language_id,
+                    newLineID[0].line_id
+                  ]
+                );
+                if (newLineTranslationID) {
+                  arrayOfLineTranslationExplanations.map(
+                    async lineTranslationExplanation => {
+                      await db.create_new_line_translation_explanation([
+                        lineTranslationExplanation,
+                        newLineTranslationID[0].line_id
+                      ]);
+                    }
+                  );
+                  return;
+                }
                 return lineTranslation;
               });
             }

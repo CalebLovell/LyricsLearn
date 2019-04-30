@@ -34,34 +34,33 @@ class Add extends Component {
       lineTranslationLyrics,
       lineTranslationExplanations
     } = this.state;
-    // try {
-    const { id } = this.props.user;
-    const result = await axios.post("/create", {
-      id,
-      songInstanceTitle,
-      artistName,
-      originalLanguageName,
-      newLanguageName,
-      songInstanceArt,
-      lineLyrics,
-      lineTranslationLyrics,
-      lineTranslationExplanations
-    });
-    const { submitted, newSongInstanceID } = result.data;
-    if (submitted === true) {
-      this.props.history.push(`/song/${newSongInstanceID}`);
-    } else {
-      alert(`Song submission failed.`);
+    try {
+      const { id } = this.props.user;
+      const result = await axios.post("/create", {
+        id,
+        songInstanceTitle,
+        artistName,
+        originalLanguageName,
+        newLanguageName,
+        songInstanceArt,
+        lineLyrics,
+        lineTranslationLyrics,
+        lineTranslationExplanations
+      });
+      const { submitted, newSongInstanceID } = result.data;
+      if (submitted === true) {
+        this.props.history.push(`/song/${newSongInstanceID}`);
+      } else {
+        alert(`Song submission failed.`);
+      }
+    } catch (err) {
+      console.log(
+        `There was a problem in your submitSongInfo method of the Add component: ${err}`
+      );
     }
-    // } catch (err) {
-    //   console.log(
-    //     `There was a problem in your submitSongInfo method of the Add component: ${err}`
-    //   );
-    // }
   };
 
   render() {
-    console.log(this.state)
     return (
       <div className="add-page">
         <div className="top-banner">
@@ -83,13 +82,19 @@ class Add extends Component {
             />
             <div className="language-inputs-container">
               <input
-                onChange={e => this.setState({ originalLanguageName: e.target.value })}
+                className="og-lang-input"
+                onChange={e =>
+                  this.setState({ originalLanguageName: e.target.value })
+                }
                 value={this.state.originalLanguageName}
                 type="text"
                 placeholder="Enter Original Language Name"
               />
               <input
-                onChange={e => this.setState({ newLanguageName: e.target.value })}
+                className="new-lang-input"
+                onChange={e =>
+                  this.setState({ newLanguageName: e.target.value })
+                }
                 value={this.state.newLanguageName}
                 type="text"
                 placeholder="Enter Translation Language Name"
@@ -112,10 +117,18 @@ class Add extends Component {
               value={this.state.lineLyrics}
               type="text"
             />
-            <button onClick={() => this.submitSongInfo()}>Submit</button>
             <textarea
               className="new-lyrix text-area"
-              placeholder="Enter Translation"
+              placeholder="Enter Translations"
+              onChange={e =>
+                this.setState({ lineTranslationExplanations: e.target.value })
+              }
+              value={this.state.lineTranslationExplanations}
+              type="text"
+            />
+            <textarea
+              className="translations text-area"
+              placeholder="Enter Explanations"
               onChange={e =>
                 this.setState({ lineTranslationLyrics: e.target.value })
               }
@@ -123,6 +136,7 @@ class Add extends Component {
               type="text"
             />
           </div>
+          <button onClick={() => this.submitSongInfo()}>Submit</button>
         </div>
       </div>
     );
