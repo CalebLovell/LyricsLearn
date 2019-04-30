@@ -5,4 +5,4 @@ values($1);
 
 select artist_id
 from artists
-where artist_name = $1
+where artist_name = $1;

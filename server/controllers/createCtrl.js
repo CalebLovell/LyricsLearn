@@ -4,7 +4,8 @@ module.exports = {
       id,
       songInstanceTitle,
       artistName,
-      languageName,
+      originalLanguageName,
+      newLanguageName,
       songInstanceArt,
       lineLyrics,
       lineTranslationLyrics
@@ -12,8 +13,11 @@ module.exports = {
     try {
       const db = await req.app.get("db");
       // Check if entered language entered exists; if not send an error.
-      const languageID = await db.get_language_id([languageName]);
-      if (!languageID[0]) {
+      const languageID = await db.get_language_id([
+        originalLanguageName,
+        newLanguageName
+      ]);
+      if (!languageID[0] || !languageID[1]) {
         return res.status(403).send({
           message: `We do not currently support that language. Please contact the site creator and he will add it asap.`
         });
@@ -57,13 +61,25 @@ module.exports = {
         ]);
         // Use newly create songInstanceID to enter every line of lyrics into db column lines
         if (newSongInstanceID[0]) {
-          for (let i = 0; i < arrayOfLines.length; i++) {
-            await db.create_new_lines([
-              arrayOfLines[i],
+          arrayOfLines.map(async line => {
+            const newLineID = await db.create_new_lines([
+              line,
               newSongInstanceID[0].song_instance_id,
               languageID[0].language_id
             ]);
-          }
+            if (newLineID) {
+              arrayOfLineTranslations.map(async lineTranslation => {
+                await db.create_new_line_translations([
+                  lineTranslation,
+                  newSongInstanceID[0].song_instance_id,
+                  languageID[1].language_id,
+                  newLineID[0].line_id                  
+                ]);
+                return lineTranslation;
+              });
+            }
+            return line;
+          });
         }
         // Sent success message and new songInstanceID so user can be pushed to new song view
         res.status(200).send({
@@ -82,13 +98,25 @@ module.exports = {
         ]);
         // Use newly create songInstanceID to enter every line of lyrics into db column lines
         if (newSongInstanceID[0]) {
-          for (let i = 0; i < arrayOfLines.length; i++) {
-            await db.create_new_lines([
-              arrayOfLines[i],
+          arrayOfLines.map(line => {
+            const newLineID = db.create_new_line([
+              line,
               newSongInstanceID[0].song_instance_id,
               languageID[0].language_id
             ]);
-          }
+            if (newLineID) {
+              arrayOfLineTranslations.map(lineTranslation => {
+                db.create_new_line_translations([
+                  lineTranslation,
+                  newSongInstanceID[0].song_instance_id,
+                  languageID[1].language_id,
+                  newLineID[0].line_id                  
+                ]);
+                return lineTranslation;
+              });
+            }
+            return line;
+          });
         }
         // Sent success message and new songInstanceID so user can be pushed to new song view
         res.status(200).send({

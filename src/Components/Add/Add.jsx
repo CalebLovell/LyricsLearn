@@ -10,7 +10,8 @@ class Add extends Component {
     this.state = {
       songInstanceTitle: "",
       artistName: "",
-      languageName: "",
+      originalLanguageName: "",
+      newLanguageName: "",
       songInstanceArt: "",
       lineLyrics: "",
       lineTranslationLyrics: "",
@@ -26,39 +27,41 @@ class Add extends Component {
     const {
       songInstanceTitle,
       artistName,
-      languageName,
+      originalLanguageName,
+      newLanguageName,
       songInstanceArt,
       lineLyrics,
       lineTranslationLyrics,
       lineTranslationExplanations
     } = this.state;
-    try {
-      const { id } = this.props.user;
-      const result = await axios.post("/create", {
-        id,
-        songInstanceTitle,
-        artistName,
-        languageName,
-        songInstanceArt,
-        lineLyrics,
-        lineTranslationLyrics,
-        lineTranslationExplanations
-      });
-      const { submitted, newSongInstanceID } = result.data;
-      if (submitted === true) {
-        this.props.history.push(`/song/${newSongInstanceID}`);
-      } else {
-        alert(`Song submission failed.`);
-      }
-    } catch (err) {
-      console.log(
-        `There was a problem in your submitSongInfo method of the Add component: ${err}`
-      );
+    // try {
+    const { id } = this.props.user;
+    const result = await axios.post("/create", {
+      id,
+      songInstanceTitle,
+      artistName,
+      originalLanguageName,
+      newLanguageName,
+      songInstanceArt,
+      lineLyrics,
+      lineTranslationLyrics,
+      lineTranslationExplanations
+    });
+    const { submitted, newSongInstanceID } = result.data;
+    if (submitted === true) {
+      this.props.history.push(`/song/${newSongInstanceID}`);
+    } else {
+      alert(`Song submission failed.`);
     }
+    // } catch (err) {
+    //   console.log(
+    //     `There was a problem in your submitSongInfo method of the Add component: ${err}`
+    //   );
+    // }
   };
 
   render() {
-    // console.log(this.state)
+    console.log(this.state)
     return (
       <div className="add-page">
         <div className="top-banner">
@@ -78,12 +81,20 @@ class Add extends Component {
               type="text"
               placeholder="Enter Artist Name"
             />
-            <input
-              onChange={e => this.setState({ languageName: e.target.value })}
-              value={this.state.languageName}
-              type="text"
-              placeholder="Enter Language Name"
-            />
+            <div className="language-inputs-container">
+              <input
+                onChange={e => this.setState({ originalLanguageName: e.target.value })}
+                value={this.state.originalLanguageName}
+                type="text"
+                placeholder="Enter Original Language Name"
+              />
+              <input
+                onChange={e => this.setState({ newLanguageName: e.target.value })}
+                value={this.state.newLanguageName}
+                type="text"
+                placeholder="Enter Translation Language Name"
+              />
+            </div>
             <input
               onChange={e => this.setState({ songInstanceArt: e.target.value })}
               value={this.state.songInstanceArt}
