@@ -5,9 +5,10 @@
   width: 100%;
   min-height: 84vh;
   font-family: $font-body;
-  .top-banner h1 {
-    margin-bottom: 3vh;
-  }
+}
+
+.add-page .top-banner {
+  justify-content: space-around;
 }
 
 .add-page-details-form {
@@ -15,8 +16,6 @@
   height: 230px;
   padding: 11px;
   border-radius: 10px;
-  color: $accent-light;
-  background-color: $base-dark;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -44,22 +43,29 @@
   }
   .new-lang-input,
   .og-lang-input {
-    width: 49.5%;
+    width: 44%;
   }
 }
 
-.add-page .main-banner button {
+.add-page-submit-button {
   max-height: 45px;
   max-width: 6.9vw;
-  margin-bottom: 2%;
+  margin: 0 1vw;
+  color: $base-light;
+  background-color: $base-dark;
+  overflow: hidden;
+  &:hover {
+    color: $base-dark;
+  }
 }
 
 .add-page-text-areas {
   width: 80%;
-  margin: 4% 0 2% 0;
+  margin: 4% 0 4% 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  white-space: nowrap;
   .text-area {
     width: 30%;
     min-height: 600px;
@@ -67,17 +73,21 @@
     border: none;
     border-radius: 0.5em;
     font-family: $font-body;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     color: $base-dark;
     background-color: $base-light;
     resize: none;
     outline: none;
+    white-space: nowrap;
+
     &::placeholder {
       font-family: $font-title;
       font-size: 16px;
       color: $base-dark;
       text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
   .trans-lyrix {

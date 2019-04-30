@@ -5,7 +5,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-container">
-        <p>&copy; LyricsLearn</p>
+        <p>&copy; LyricsLog</p>
         <a href="https://github.com/CalebLovell/LyricsLog">
             <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="github logo"/>
             <p>Link to GitHub Repo</p>

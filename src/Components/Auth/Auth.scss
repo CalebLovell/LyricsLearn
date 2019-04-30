@@ -67,10 +67,17 @@
     font-size: 20px;
     font-weight: bold;
     letter-spacing: 0.1em;
+    border: 3px solid $accent-dark;
+    background-color: $base-dark;
+    &:hover {
+      border: 3px solid $base-dark;
+      color: $accent-dark;
+      background-color: $base-light;
+    }
   }
   p {
     margin-top: 20px;
-    color: $accent-dark;
+    color: $base-light;
     font-family: $font-title;
     font-style: italic;
     font-size: 12px;
@@ -78,7 +85,7 @@
 }
 
 .form a p:hover {
-  color: $base-light;
+  color: $accent-light;
 }
 
 .icon {

@@ -1,15 +1,29 @@
 // Colors
 $base-light: rgba(251, 253, 253, 1);
-$base-dark: rgba(53, 53, 53, 1);
-$accent-light: rgba(255, 106, 46, 1);
-$accent-dark: orangered;
+$base-dark: #cc978e;
+$accent-light: rgba(56, 56, 56, 1);
+$accent-dark: rgba(255, 59, 62, 1);
+
+// $base-dark: #BF3F33;
+$accent-dark: #F22E1D;
+$accent-dark: #BF3F33;
+
 
 // Fonts
 $font-title: "Montserrat", sans-serif;
 $font-body: "Varela Round", sans-serif;
 
 // Gradients
-$gradient-light: linear-gradient(135deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2));
+$gradient-light: linear-gradient(
+  135deg,
+  rgba(255, 255, 255, 0),
+  rgba(255, 255, 255, 0.2)
+);
 $gradient-dark: linear-gradient(135deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
 // $gradient-red: linear-gradient(135deg, rgba(255, 59, 63, 1), #801D1F);
 
+// $My-Color-Theme-1-rgba: rgba(128,29,31, 1);
+// $My-Color-Theme-2-rgba: rgba(255,135,137, 1);
+// $My-Color-Theme-3-rgba: rgba(255,59,62, 1);
+// $My-Color-Theme-4-rgba: rgba(128,68,69, 1);
+// $My-Color-Theme-5-rgba: rgba(204,47,50, 1);

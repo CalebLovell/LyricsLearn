@@ -33,13 +33,14 @@ class Profile extends Component {
   };
 
   deleteSongInstance = async songID => {
-    // try {
+    try {
       await axios.delete(`/song/${songID}`);
-    // } catch (err) {
-    //   console.log(
-    //     `The deleteSongInstance method on the Profile component had a problem: ${err}`
-    //   );
-    // }
+      this.getUserSongs(this.props.user.id);
+    } catch (err) {
+      console.log(
+        `The deleteSongInstance method on the Profile component had a problem: ${err}`
+      );
+    }
   };
 
   render() {
@@ -59,23 +60,21 @@ class Profile extends Component {
         {id && (
           <div className="profile-page">
             <div className="top-banner">
-              <div className="account-info-container">
-                <div className="account-pic">
-                  <img src={`${image}`} alt="profile pic" />
-                </div>
-                <h1>{`${name}`}</h1>
-                <div className="buttons-container">
-                  <Link to="/add">
-                    <div className="lefty">
-                      <button className="left-button">Add a Song</button>
-                    </div>
-                  </Link>
-                  <Link to="/editInfo">
-                    <div className="righty">
-                      <button className="right-button">Edit Account</button>
-                    </div>
-                  </Link>
-                </div>
+              <div className="account-pic">
+                <img src={`${image}`} alt="profile pic" />
+              </div>
+              <h1>{`${name}`}</h1>
+              <div className="buttons-container">
+                <Link to="/add">
+                  <div className="lefty">
+                    <button className="left-button">Add a Song</button>
+                  </div>
+                </Link>
+                <Link to="/editInfo">
+                  <div className="righty">
+                    <button className="right-button">Edit Account</button>
+                  </div>
+                </Link>
               </div>
             </div>
             <div className="main-banner">

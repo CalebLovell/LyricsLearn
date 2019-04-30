@@ -18,7 +18,7 @@
     border-top: 3px solid $base-dark;
     white-space: nowrap;
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 75% 25%;
     grid-template-rows: 1fr 1fr;
     grid-template-areas:
       "title button"
@@ -27,7 +27,7 @@
       grid-area: title;
       overflow: hidden;
       text-overflow: ellipsis;
-      font-size: 16px;
+      font-size: calc(.9vw + 5px);
       color: $base-dark;
       &:hover {
         color: $accent-dark;
@@ -38,7 +38,8 @@
       overflow: hidden;
       text-overflow: ellipsis;
       padding-top: 0.3em;
-      font-size: 12px;
+      font-size: .95vw;
+      font-size: calc(.75vw + 2px);
       color: grey;
       &:hover {
         color: $accent-dark;
@@ -51,7 +52,7 @@
       border: 2px solid $base-dark;
       color: $base-dark;
       background-color: $base-light;
-      border-radius: 15px;
+      border-radius: 1px;
       font-size: .8vw;
       font-weight: bold;
       &:hover {

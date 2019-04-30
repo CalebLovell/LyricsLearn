@@ -80,6 +80,12 @@ class Add extends Component {
               type="text"
               placeholder="Enter Artist Name"
             />
+            <input
+              onChange={e => this.setState({ songInstanceArt: e.target.value })}
+              value={this.state.songInstanceArt}
+              type="text"
+              placeholder="Enter Album Art"
+            />
             <div className="language-inputs-container">
               <input
                 className="og-lang-input"
@@ -90,6 +96,12 @@ class Add extends Component {
                 type="text"
                 placeholder="Enter Original Language Name"
               />
+              <button
+                className="add-page-submit-button"
+                onClick={() => this.submitSongInfo()}
+              >
+                Submit
+              </button>
               <input
                 className="new-lang-input"
                 onChange={e =>
@@ -100,12 +112,6 @@ class Add extends Component {
                 placeholder="Enter Translation Language Name"
               />
             </div>
-            <input
-              onChange={e => this.setState({ songInstanceArt: e.target.value })}
-              value={this.state.songInstanceArt}
-              type="text"
-              placeholder="Enter Album Art"
-            />
           </div>
         </div>
         <div className="main-banner">
@@ -121,22 +127,21 @@ class Add extends Component {
               className="new-lyrix text-area"
               placeholder="Enter Translations"
               onChange={e =>
-                this.setState({ lineTranslationExplanations: e.target.value })
-              }
-              value={this.state.lineTranslationExplanations}
-              type="text"
-            />
-            <textarea
-              className="translations text-area"
-              placeholder="Enter Explanations"
-              onChange={e =>
                 this.setState({ lineTranslationLyrics: e.target.value })
               }
               value={this.state.lineTranslationLyrics}
               type="text"
             />
+            <textarea
+              className="explanations text-area"
+              placeholder="Enter Explanations"
+              onChange={e =>
+                this.setState({ lineTranslationExplanations: e.target.value })
+              }
+              value={this.state.lineTranslationExplanations}
+              type="text"
+            />
           </div>
-          <button onClick={() => this.submitSongInfo()}>Submit</button>
         </div>
       </div>
     );

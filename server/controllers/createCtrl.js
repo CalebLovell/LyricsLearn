@@ -71,38 +71,47 @@ module.exports = {
         ]);
         // Use newly create songInstanceID to enter every line of lyrics into db column lines
         if (newSongInstanceID[0]) {
-          arrayOfLines.map(async line => {
+          async function recursive(anArray) {
+            let shiftedLine = anArray.shift();
             const newLineID = await db.create_new_lines([
-              line,
+              shiftedLine,
               newSongInstanceID[0].song_instance_id,
               languageID[0].language_id
             ]);
-            if (newLineID) {
-              arrayOfLineTranslations.map(async lineTranslation => {
-                const newLineTranslationID = await db.create_new_line_translations(
-                  [
-                    lineTranslation,
-                    newSongInstanceID[0].song_instance_id,
-                    languageID[1].language_id,
-                    newLineID[0].line_id
-                  ]
-                );
-                if (newLineTranslationID) {
-                  arrayOfLineTranslationExplanations.map(
-                    async lineTranslationExplanation => {
-                      await db.create_new_line_translation_explanation([
-                        lineTranslationExplanation,
-                        newLineTranslationID[0].line_id
-                      ]);
-                    }
-                  );
-                  return;
-                }
-                return lineTranslation;
-              });
+            if (newLineID && anArray.length) {
+              recursive(anArray);
             }
-            return line;
-          });
+          }
+          recursive(arrayOfLines);
+
+          
+
+          // if (newLineID) {
+          //   arrayOfLineTranslations.map(async lineTranslation => {
+          //     const newLineTranslationID = await db.create_new_line_translations(
+          //       [
+          //         lineTranslation,
+          //         newSongInstanceID[0].song_instance_id,
+          //         languageID[1].language_id,
+          //         newLineID[0].line_id
+          //       ]
+          //     );
+          //     if (newLineTranslationID) {
+          //       arrayOfLineTranslationExplanations.map(
+          //         async lineTranslationExplanation => {
+          //           await db.create_new_line_translation_explanation([
+          //             lineTranslationExplanation,
+          //             newLineTranslationID[0].line_id
+          //           ]);
+          //         }
+          //       );
+          //       return;
+          //     }
+          //     return lineTranslation;
+          //   });
+          // }
+          // return line;
+          // });
         }
         // Sent success message and new songInstanceID so user can be pushed to new song view
         res.status(200).send({

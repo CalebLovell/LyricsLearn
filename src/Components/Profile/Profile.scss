@@ -6,14 +6,15 @@
   min-height: 88vh;
 }
 
-.account-info-container {
+.profile-page .top-banner {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   .account-pic {
-    height: 9vw;
-    width: 9vw;
+    height: calc(5vw + 60px);
+    width: calc(5vw + 60px);
     img {
       object-fit: cover;
       height: 100%;
@@ -23,10 +24,8 @@
     }
   }
   h1 {
-    color: $base-dark;
-    font-size: 50px;
+    color: $base-light;
     font-family: $font-title;
-    margin: 1.5vw 0px;
   }
 }
 

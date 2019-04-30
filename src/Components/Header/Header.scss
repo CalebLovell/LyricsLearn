@@ -2,7 +2,8 @@
 
 header {
   height: 6vh;
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.08);
+  // box-shadow: 0 1px 10px rgba(0, 0, 0, 0.08);
+  // border-bottom: 1px solid $base-light;
   background-color: $base-dark;
   font-family: $font-title;
   display: flex;
@@ -30,8 +31,10 @@ header {
     color: $accent-dark;
   }
   .profile-pic {
-    height: 35px;
-    width: 35px;
+    height: 2vw;
+    width: 2vw;
+    display: flex;
+    align-items: center;
     img {
       object-fit: cover;
       height: 100%;
@@ -51,8 +54,8 @@ header {
   align-items: center;
   text-decoration: none;
   img {
-    height: 35px;
-    width: 35px;
+    height: 2vw;
+    width: 2vw;
   }
   h1 {
     font-size: 30px;

@@ -1,11 +1,11 @@
 button {
   font-family: $font-body;
-  font-size: 14px;
+  font-size: 16px;
   color: $base-light;
   background-color: $accent-dark;
   border: 3px solid $base-light;
   box-sizing: border-box;
-  padding: 10px 40px;
+  padding: calc(.2vw + 5px) calc(.5vw + 20px);
   border-radius: 50px;
   cursor: pointer;
   display: flex;
@@ -21,8 +21,8 @@ button:hover {
 }
 
 .left-button {
-  color: $accent-dark;
-  background-color: $base-light;
+  color: $base-light;
+  background-color: $base-dark;
   border: 3px solid $accent-dark;
   &:hover {
     background-color: $accent-dark;
@@ -35,9 +35,9 @@ button:hover {
   border: 3px solid $accent-dark;
   &:hover {
     box-sizing: border-box;
-    color: $accent-dark;
-    background-color: $base-light;
-    border: 3px solid $base-light;
+    color: $base-light;
+    background-color: $base-dark;
+    border: 3px solid $base-dark;
   }
 }
 
@@ -45,7 +45,6 @@ button:hover {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 1vw;
-  // border: 1px solid black;
   .lefty {
     display: flex;
     justify-content: flex-end;
@@ -57,23 +56,40 @@ button:hover {
 
 .top-banner {
   width: 100%;
-  height: 45vh;
+  min-height: 50vh;
+  background-color: $base-dark;
+  padding-bottom: 5vh;
+  // padding: 5vh 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   h1 {
     font-size: 36px;
-    color: $base-dark;
+    color: $base-light;
   }
 }
 
 .main-banner {
   width: 100%;
+  min-height: 76vh;
   background-color: $accent-dark;
+  margin-top: -5vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%, 52.5% 0%, 50% 2%, 47.5% 0%);
+  clip-path: polygon(
+    0% 0%,
+    0% 100%,
+    100% 100%,
+    100% 0%,
+    52.5% 0%,
+    50% 2vw,
+    47.5% 0%
+  );
+  h1 {
+    font-size: 36px;
+  }
 }
