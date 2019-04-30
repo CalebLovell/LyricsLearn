@@ -32,13 +32,26 @@ class Profile extends Component {
     }
   };
 
+  deleteSongInstance = async songID => {
+    // try {
+      await axios.delete(`/song/${songID}`);
+    // } catch (err) {
+    //   console.log(
+    //     `The deleteSongInstance method on the Profile component had a problem: ${err}`
+    //   );
+    // }
+  };
+
   render() {
     const { id, name, image } = this.props.user;
     let mappedUserSongs = this.state.userSongs.map((song, i) => {
       return (
-        <Link to={`/song/${song.song_instance_id}`}>
-          <SongInstance key={i} song={song} />
-        </Link>
+        <SongInstance
+          key={i}
+          song={song}
+          userID={id}
+          deleteSongInstance={this.deleteSongInstance}
+        />
       );
     });
     return (

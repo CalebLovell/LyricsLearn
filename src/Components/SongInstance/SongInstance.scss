@@ -17,7 +17,14 @@
     background-color: $base-light;
     border-top: 3px solid $base-dark;
     white-space: nowrap;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "title button"
+      "artist button";
     h5 {
+      grid-area: title;
       overflow: hidden;
       text-overflow: ellipsis;
       font-size: 16px;
@@ -27,6 +34,7 @@
       }
     }
     h6 {
+      grid-area: artist;
       overflow: hidden;
       text-overflow: ellipsis;
       padding-top: 0.3em;
@@ -36,10 +44,25 @@
         color: $accent-dark;
       }
     }
+    button {
+      grid-area: button;
+      width: 100%;
+      padding: 0;
+      border: 2px solid $base-dark;
+      color: $base-dark;
+      background-color: $base-light;
+      border-radius: 15px;
+      font-size: .8vw;
+      font-weight: bold;
+      &:hover {
+        color: $base-light;
+        background-color: $base-dark;
+      }
+    }
   }
   box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.5);
   &:hover {
-    box-shadow: 0 0 30px 0px rgba(255, 255, 255, .5);
+    box-shadow: 0 0 30px 0px rgba(255, 255, 255, 0.5);
     transform: scale(1.1);
   }
 }

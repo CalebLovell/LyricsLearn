@@ -52,7 +52,7 @@ class Landing extends Component {
       <div className="landing-page">
         <div className="top-banner">
           <div className="welcome-container">
-            <h1>Welcome!</h1>
+            <h1>Welcome to LyricsLog!</h1>
             <div className="buttons-container">
               <Link to="/login">
                 <div className="lefty">

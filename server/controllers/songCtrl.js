@@ -66,5 +66,19 @@ module.exports = {
     } catch (err) {
       res.status(500).send(`The getSongs function had a problem: ${err}`);
     }
+  },
+  deleteSongInstance: async (req, res) => {
+    // try {
+      const { songID } = req.params;
+      const db = await req.app.get("db");
+      await db.delete_song_instance([songID]);
+      res.status(200).send({
+        message: `Song deleted.`
+      });
+    // } catch (err) {
+    //   res
+    //     .status(500)
+    //     .send(`The deleteSongInstance function had a problem: ${err}`);
+    // }
   }
 };

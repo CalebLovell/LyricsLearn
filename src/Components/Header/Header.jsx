@@ -55,7 +55,7 @@ class Header extends Component {
           <Link to="/">
             <div className="logo">
               {/* <img src="https://via.placeholder.com/150" alt="site logo" /> */}
-              <h1>LyricsLog</h1>
+              {/* <h1>LyricsLog</h1> */}
             </div>
           </Link>
           <div className="search-box">
