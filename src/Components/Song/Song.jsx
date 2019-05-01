@@ -31,7 +31,6 @@ class Song extends Component {
     try {
       const { songID } = this.props.match.params;
       const result = await axios.get(`/song/${songID}`);
-      // console.log(result);
       const {
         song_instance_title,
         song_instance_art,

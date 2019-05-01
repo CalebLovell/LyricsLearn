@@ -55,7 +55,7 @@ class Add extends Component {
       }
     } catch (err) {
       console.log(
-        `There was a problem in your submitSongInfo method of the Add component: ${err}`
+        `There was a problem in your submitSongInfo method on the Add component: ${err}`
       );
     }
   };

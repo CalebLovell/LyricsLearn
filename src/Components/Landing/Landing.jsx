@@ -22,7 +22,6 @@ class Landing extends Component {
   getSongs = async () => {
     try {
       const result = await axios.get(`/songs`);
-      console.log(result)
       this.setState({
         recentSongs: result.data.recentSongs,
         englishSongs: result.data.englishSongs
