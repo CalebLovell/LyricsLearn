@@ -6,6 +6,12 @@
   min-height: 88vh;
 }
 
+.landing-page .top-banner {
+  h1 {
+    font-size: 60px;
+  }
+}
+
 .main-banner.one h1 {
   color: $base-light;
 }
@@ -28,6 +34,7 @@
   align-items: center;
   justify-content: center;
   h1 {
+    font-size: 60px;
     margin-bottom: 10vh;
   }
 }
