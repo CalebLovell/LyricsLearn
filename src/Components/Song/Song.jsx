@@ -60,7 +60,6 @@ class Song extends Component {
     try {
       const { songID } = this.props.match.params;
       const result = await axios.get(`/song/${songID}/${languageID}`);
-      // console.log(result);
       this.setState({
         songTranslation: result.data.songTranslation,
         newArr: result.data.newArr
@@ -91,7 +90,6 @@ class Song extends Component {
   };
 
   render() {
-    console.log(this.state);
     let mappedSlots = this.state.songLines.map((line, i) => {
       let filteredLine = this.state.songTranslation.filter(
         transLine => transLine.line_id === line.line_id
