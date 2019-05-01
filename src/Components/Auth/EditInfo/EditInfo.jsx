@@ -33,6 +33,16 @@ class EditInfo extends Component {
         alert(`Login failed. User not logged in.`);
       }
     } catch (err) {
+      console.log(
+        `Your editInfo metho don the EditInfo component threw an error: ${err}`
+      );
+    }
+  };
+
+  cancelEdit = () => {
+    try {
+      this.props.history.push("/profile");
+    } catch (err) {
       console.log(`You got an error: ${err}`);
     }
   };
@@ -71,7 +81,14 @@ class EditInfo extends Component {
               placeholder="Profile Picture"
             />
           </div>
-          <button onClick={e => this.editInfo(this.props.user.id)}>Edit Info</button>
+          <div className="buttons-container edit-info-buttons">
+            <button onClick={e => this.editInfo(this.props.user.id)} className="left-button">
+              Edit Info
+            </button>
+            <button onClick={e => this.cancelEdit(this.props.user.id)} className="right-button">
+              Cancel
+            </button>
+          </div>
         </div>
       </div>
     );

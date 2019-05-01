@@ -73,6 +73,10 @@ class Song extends Component {
     }
   };
 
+  editSong = () => {
+    
+  }
+
   setExplanation = async explanation => {
     this.setState({
       visibleExplanation: explanation
@@ -88,6 +92,7 @@ class Song extends Component {
   };
 
   render() {
+    console.log(this.state);
     let mappedSlots = this.state.songLines.map((line, i) => {
       let filteredLine = this.state.songTranslation.filter(
         transLine => transLine.line_id === line.line_id
@@ -133,7 +138,10 @@ class Song extends Component {
               <h1>{this.state.songTitle}</h1>
               <h4>{this.state.artistName}</h4>
               <div className="languages-box">{mappedLanguages}</div>
-              <h5>Author: {this.state.userName}</h5>
+              <div className="bottom-line">
+                <h5>Author: {this.state.userName}</h5>
+                {this.state.songTranslation[0] && <button onClick={() => this.editSong()}>Edit Song</button>}
+              </div>
             </div>
           </div>
         </div>
@@ -144,6 +152,7 @@ class Song extends Component {
             onMouseOut={() => this.isExplanationHidden(true)}
           >
             {mappedSlots}
+          </div>
           <div className="explanation-box-holder">
             {!this.state.isExplanationHidden && (
               <div className="explanation-box">
@@ -152,7 +161,6 @@ class Song extends Component {
                 </div>
               </div>
             )}
-          </div>
           </div>
         </div>
       </div>

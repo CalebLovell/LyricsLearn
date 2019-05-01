@@ -27,7 +27,7 @@
       grid-area: title;
       overflow: hidden;
       text-overflow: ellipsis;
-      font-size: calc(.9vw + 5px);
+      font-size: calc(.7vw + 6px);
       color: $base-dark;
       &:hover {
         color: $accent-dark;
@@ -39,7 +39,7 @@
       text-overflow: ellipsis;
       padding-top: 0.3em;
       font-size: .95vw;
-      font-size: calc(.75vw + 2px);
+      font-size: calc(.5vw + 6px);
       color: grey;
       &:hover {
         color: $accent-dark;

@@ -10,7 +10,6 @@
   justify-content: center;
   align-items: center;
   border-top: 1px solid $base-light;
-  border-bottom: 1px solid $base-light;
 }
 
 .form {
@@ -82,6 +81,10 @@
     font-style: italic;
     font-size: 12px;
   }
+}
+
+.edit-info-buttons {
+  width: 100%;
 }
 
 .form a p:hover {
