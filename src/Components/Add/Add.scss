@@ -63,12 +63,16 @@
 .add-page-text-areas {
   width: 80%;
   margin: 4% 0 4% 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 3vw;
+  grid-row-gap: 3vw;
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: center;
   white-space: nowrap;
   .text-area {
-    width: 30%;
+    width: 100%;
     min-height: 600px;
     padding: 12px;
     border: none;
@@ -90,6 +94,9 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
+  }
+  .explanations {
+    grid-column: 1 /3;
   }
   .trans-lyrix {
     margin: 0px 1%;

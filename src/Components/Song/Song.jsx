@@ -71,9 +71,7 @@ class Song extends Component {
     }
   };
 
-  editSong = () => {
-    
-  }
+  editSong = () => {};
 
   setExplanation = async explanation => {
     this.setState({
@@ -96,6 +94,7 @@ class Song extends Component {
       );
       return (
         <Slot
+          key={i}
           ogLine={line}
           transLine={filteredLine}
           setExplanation={this.setExplanation}
@@ -137,7 +136,9 @@ class Song extends Component {
               <div className="languages-box">{mappedLanguages}</div>
               <div className="bottom-line">
                 <h5>Author: {this.state.userName}</h5>
-                {this.state.songTranslation[0] && <button onClick={() => this.editSong()}>Edit Song</button>}
+                {this.state.songTranslation[0] && (
+                  <button onClick={() => this.editSong()}>Edit Song</button>
+                )}
               </div>
             </div>
           </div>

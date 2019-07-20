@@ -2,9 +2,9 @@
 $base-light: rgba(251, 253, 253, 1);
 $base-dark: #707b7c;
 $accent-light: rgba(56, 56, 56, 1);
-$accent-dark: rgba(255, 59, 62, 1);
+// $accent-dark: rgba(255, 59, 62, 1);
 
-$accent-dark: rgb(240, 31, 24);
+$accent-dark: #559ba1;
 // $base-dark: rgba(56, 56, 56, 1);
 // $base-dark: #A60303;
 
@@ -26,3 +26,6 @@ $My-Color-Theme-2-rgba: rgba(255, 135, 137, 1);
 $My-Color-Theme-3-rgba: rgba(255, 59, 62, 1);
 $My-Color-Theme-4-rgba: rgba(128, 68, 69, 1);
 $My-Color-Theme-5-rgba: rgba(204, 47, 50, 1);
+
+
+// @mixin mq (300px, 500px)

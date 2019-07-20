@@ -12,8 +12,11 @@
   }
 }
 
-.main-banner.one h1 {
-  color: $base-light;
+.main-banner.one {
+  padding-bottom: 5vh;
+  h1 {
+    color: $base-light;
+  }
 }
 
 .main-banner.two {
@@ -41,7 +44,7 @@
 
 .main-banner-container {
   width: 80%;
-  padding: 8vh 0 10vh 0;
+  height: 100%;
   h1 {
     margin-bottom: 5vh;
     font-size: 48px;
@@ -52,5 +55,32 @@
     grid-template-columns: repeat(4, calc(74vw / 4));
     grid-column-gap: 2vw;
     grid-row-gap: 2vw;
+  }
+}
+
+@media all and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+  .main-banner-container {
+    width: 80%;
+    padding: none !important;
+  }
+  .first-four-songs-container {
+    grid-column-gap: 10vw !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-rows: repeat(2, 1fr) !important;
+  }
+  .song-instance-box {
+    height: 100%;
+    .art-box {
+      height: calc(100vw / 4) !important;
+    }
+    .song-instance-descriptions-box {
+      height: 7.34vw;
+      h5 {
+        font-size: calc(1.4vw + 6px) !important;
+      }
+      h6 {
+        font-size: calc(1vw + 6px) !important;
+      }
+    }
   }
 }

@@ -35,14 +35,14 @@ class Landing extends Component {
   render() {
     let mappedRecentSongs = this.state.recentSongs.map((song, i) => {
       return (
-        <Link to={`/song/${song.song_instance_id}`}>
+        <Link to={`/song/${song.song_instance_id}`} key={i}>
           <SongInstance key={i} song={song} />
         </Link>
       );
     });
     let mappedEnglishSongs = this.state.englishSongs.map((song, i) => {
       return (
-        <Link to={`/song/${song.song_instance_id}`}>
+        <Link to={`/song/${song.song_instance_id}`} key={i}>
           <SongInstance key={i} song={song} />
         </Link>
       );
